@@ -530,6 +530,7 @@ int zs_synthesize(zs_ctx * c, const zs_request * req, float ** out, int64_t * n_
             std::map<std::string, double> doses;
             std::vector<zonos3_control_span> spans;
             std::string ctl_err;
+            const int text_chars = (int) utf8_chars(text);
             if (!parse_controls(req->controls, doses, ctl_err)) {
                 set_err(err, err_len, ctl_err);
                 return -1;
@@ -538,8 +539,20 @@ int zs_synthesize(zs_ctx * c, const zs_request * req, float ** out, int64_t * n_
                 set_err(err, err_len, ctl_err);
                 return -1;
             }
+            // The spoken text is normalized (whitespace folded, numbers spelled out), so a caller's
+            // character offsets can land past its end: fit them instead of failing the request.
+            {
+                std::vector<zonos3_control_span> fitted;
+                fitted.reserve(spans.size());
+                for (auto & span : spans) {
+                    if (span.start >= text_chars) continue;
+                    if (span.end > text_chars) span.end = text_chars;
+                    if (span.end > span.start) fitted.push_back(std::move(span));
+                }
+                spans.swap(fitted);
+            }
             if (req->embedding) steered_embedding.assign(req->embedding, req->embedding + model.hp.speaker_dim);
-            if (!zonos3_steer_resolve(c->steer, doses, spans, utf8_chars(text), span_frames_per_char(std::string(text)),
+            if (!zonos3_steer_resolve(c->steer, doses, spans, text_chars, span_frames_per_char(std::string(text)),
                                       req->embedding ? &steered_embedding : nullptr, steering, ctl_err)) {
                 set_err(err, err_len, ctl_err);
                 return -1;
