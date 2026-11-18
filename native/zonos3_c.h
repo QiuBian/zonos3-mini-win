@@ -62,6 +62,9 @@ typedef struct zs_request {
     // Emotion/style doses: JSON {"<direction id>": dose, ...} (e.g. {"emotions.happy": 4}), NULL/"" = no steering.
     // Needs zs_steer_load(); raw-space directions move the speaker embedding, hidden-space ones add to the bank.
     const char * controls;
+    // Word-level controls: JSON [{"start": char, "end": char, "controls": {"<id>": dose}], in UTF-8 characters
+    // of `text`; NULL/"" = the constant `controls` apply to the whole line. Needs zs_steer_load().
+    const char * spans;
 } zs_request;
 
 // On success *out holds *n_out samples at zs_sample_rate (free with zs_free); returns 0, or -1 with err set.
