@@ -228,6 +228,12 @@ def main():
     data = ASSETS / 'zonos3'
     shutil.copytree(SRC / 'assets' / 'laci_heads', data / 'laci_heads')
     shutil.copyfile(SRC / 'model/src/zonos3/registries/languages.json', data / 'languages.json')
+    # The release workflow's archive assertion reads each asset as
+    # `build/assets/<basename>`; nested assets (the LACI heads) are therefore
+    # also kept flat so that check finds them. The spec copies them either way.
+    for nested in sorted(data.rglob('*')):
+        if nested.is_file():
+            shutil.copyfile(nested, ASSETS / nested.name)
     collect_licences()
 
     files = {p.relative_to(ASSETS).as_posix(): sha256(p) for p in sorted(ASSETS.rglob('*')) if p.is_file()}
