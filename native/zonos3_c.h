@@ -38,6 +38,13 @@ ZS_API int zs_speaker_dim(const zs_ctx * c);
 // pcm: mono float32 at 44100 or 16000 Hz. out: zs_speaker_dim floats. Returns 0 on success.
 ZS_API int zs_embed(zs_ctx * c, const float * pcm, int64_t n, int sample_rate, float * out);
 
+// Optional emotion/style steering (steer.gguf). Load after zs_load and before a request carries `controls`.
+// Returns 0 on success, -1 with the reason in err.
+ZS_API int zs_steer_load(zs_ctx * c, const char * path, char * err, int err_len);
+// The loaded bundle's directions as a JSON array [{"id","set","name","hidden","axis"}]; "" when none is loaded.
+// Writes at most out_len bytes; returns the JSON length (may exceed out_len).
+ZS_API int zs_steer_controls(zs_ctx * c, char * out, int out_len);
+
 typedef struct zs_request {
     const char * text;          // normalized UTF-8
     const char * language;      // server language code (languages.json "code"), e.g. "en_us"; picks the filler
@@ -52,6 +59,9 @@ typedef struct zs_request {
     int short_text;             // with laci_heads: one or two words get the pause marker + filler and are cut there
     int tail_cut;               // with laci_heads: cut at the first silence once the text is read (see zonos3_c.cpp)
     const volatile int * cancel; // polled every frame, nonzero stops
+    // Emotion/style doses: JSON {"<direction id>": dose, ...} (e.g. {"emotions.happy": 4}), NULL/"" = no steering.
+    // Needs zs_steer_load(); raw-space directions move the speaker embedding, hidden-space ones add to the bank.
+    const char * controls;
 } zs_request;
 
 // On success *out holds *n_out samples at zs_sample_rate (free with zs_free); returns 0, or -1 with err set.
