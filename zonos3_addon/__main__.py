@@ -171,6 +171,8 @@ def _options() -> dict:
     return {
         'threads': int(_env_number('ZONOS3_THREADS', 0, 0, 256)),
         'voice_ref_audio': _env('ZONOS3_VOICE_REF_AUDIO'),
+        # Emotion/style steering bundle (steer.gguf); a request's `controls` need it.
+        'steer': _env('ZONOS3_STEER'),
     }
 
 
@@ -337,7 +339,8 @@ def _load(state: '_Request', options: dict, clone: bool):
     threads = options['threads'] or engine.default_threads()
     # The speaker encoder stays loaded once a clone asked for it.
     with_encoder = clone or (_loaded is not None and _loaded.can_clone)
-    key = (threads, with_encoder)
+    steer = options.get('steer') or ''
+    key = (threads, with_encoder, steer)
     if _loaded is None or _loaded_key != key:
         _emit_progress(state.req_id, 0.3, 'Loading ZONOS3-Mini...')
         started = time.monotonic()
@@ -345,7 +348,8 @@ def _load(state: '_Request', options: dict, clone: bool):
             _loaded.close()
         _loaded = None
         _loaded = engine.Zonos3(_file('backbone-ptq.gguf'), _file('zac-keep2.gguf'),
-                                _file('spk-encoder.gguf') if with_encoder else None, threads)
+                                _file('spk-encoder.gguf') if with_encoder else None, threads,
+                                Path(steer) if steer else None)
         _loaded_key = key
         log.info('loaded the model with %d threads%s in %.1fs', threads,
                  ' and the speaker encoder' if with_encoder else '', time.monotonic() - started)
@@ -405,6 +409,10 @@ def _handle_synthesize(state: _Request, params: dict) -> None:
         return
     options = _options()
     seed = _seed(params)
+    controls = params.get('controls')
+    if controls is not None and not isinstance(controls, dict):
+        _emit_error(req_id, ERR_BAD_PARAMS, 'controls must be an object like {"emotions.happy": 4}')
+        return
 
     reference = ''
     if voice.id == voices.CLONE:
@@ -437,7 +445,7 @@ def _handle_synthesize(state: _Request, params: dict) -> None:
                      language.code, seed, rate, len(spoken))
             started = time.monotonic()
             samples, record = model.synthesize(spoken, language, embedding, seed=seed, rate=rate,
-                                               cancel=state.cancel)
+                                               cancel=state.cancel, controls=controls or None)
             took = time.monotonic() - started
         if state.cancel.is_set():
             raise engine.Cancelled()
