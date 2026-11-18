@@ -129,7 +129,7 @@ class Request(Structure):
     _fields_ = [('text', c_char_p), ('language', c_char_p), ('embedding', POINTER(c_float)),
                 ('cfg_scale', c_float), ('speaking_rate', c_double), ('seed', c_uint32), ('max_frames', c_int),
                 ('laci_heads', c_char_p), ('short_text', c_int), ('tail_cut', c_int),
-                ('cancel', POINTER(c_int))]
+                ('cancel', POINTER(c_int)), ('controls', c_char_p)]
 
 
 _lib = None
@@ -168,6 +168,10 @@ def load_library():
                                       c_char_p, c_int, c_char_p, c_int]
         lib.zs_free.restype = None
         lib.zs_free.argtypes = [POINTER(c_float)]
+        lib.zs_steer_load.restype = c_int
+        lib.zs_steer_load.argtypes = [c_void_p, c_char_p, c_char_p, c_int]
+        lib.zs_steer_controls.restype = c_int
+        lib.zs_steer_controls.argtypes = [c_void_p, c_char_p, c_int]
         interface = lib.zs_version().decode('ascii', 'replace').split()[0]
         if interface != INTERFACE:
             raise EngineError(f'{path.name} has interface {interface}, the add-on needs {INTERFACE}')
@@ -235,7 +239,8 @@ def voiced_seconds(samples: array, rate: int = SAMPLE_RATE, threshold: float = 0
 class Zonos3:
     """One loaded model. Lines are spoken one at a time (the caller serializes them)."""
 
-    def __init__(self, backbone: Path, decoder: Path, speaker_encoder: Path | None, threads: int):
+    def __init__(self, backbone: Path, decoder: Path, speaker_encoder: Path | None, threads: int,
+                 steer: Path | None = None):
         lib = load_library()
         err = ctypes.create_string_buffer(1024)
         handle = lib.zs_load(str(backbone).encode(), str(decoder).encode(),
@@ -248,6 +253,21 @@ class Zonos3:
         self.can_clone = speaker_encoder is not None
         if lib.zs_speaker_dim(handle) != SPEAKER_DIM:
             raise EngineError(f'the model has {lib.zs_speaker_dim(handle)}-value speaker embeddings, not {SPEAKER_DIM}')
+        # Emotion/style steering (steer.gguf); its directions are what `controls` doses refer to.
+        self.steer_controls: list = []
+        if steer:
+            if lib.zs_steer_load(handle, str(steer).encode(), err, len(err)):
+                self.close()
+                raise EngineError(err.value.decode('utf-8', 'replace') or 'could not load the steering bundle')
+            self.steer_controls = self._controls()
+
+    def _controls(self) -> list:
+        buf = ctypes.create_string_buffer(1 << 20)
+        self._lib.zs_steer_controls(self._handle, buf, len(buf))
+        try:
+            return json.loads(buf.value.decode('utf-8', 'replace') or '[]')
+        except ValueError:
+            return []
 
     def close(self) -> None:
         if self._handle:
@@ -273,11 +293,12 @@ class Zonos3:
         return bytes(out)
 
     def _once(self, text: str, language: Language, embedding: bytes | None, seed: int, rate: float,
-              laci: bool, cancel: Cancel) -> tuple[array, dict]:
+              laci: bool, cancel: Cancel, controls: dict | None = None) -> tuple[array, dict]:
         emb = (c_float * SPEAKER_DIM).from_buffer_copy(embedding) if embedding else None
         heads = str(laci_heads(language)).encode() if laci else None
+        doses = json.dumps(controls, sort_keys=True).encode() if controls else None
         request = Request(text.encode('utf-8'), language.code.encode(), emb, 1.0, rate, seed & 0xFFFFFFFF, 0,
-                          heads, 1 if laci else 0, 1 if laci else 0, cancel.pointer)
+                          heads, 1 if laci else 0, 1 if laci else 0, cancel.pointer, doses)
         out, count = POINTER(c_float)(), c_int64()
         err = ctypes.create_string_buffer(1024)
         info = ctypes.create_string_buffer(16384)
@@ -302,7 +323,8 @@ class Zonos3:
         return samples, record
 
     def synthesize(self, text: str, language: Language, embedding: bytes | None, seed: int = 0,
-                   rate: float = -1.0, cancel: Cancel | None = None) -> tuple[array, dict]:
+                   rate: float = -1.0, cancel: Cancel | None = None,
+                   controls: dict | None = None) -> tuple[array, dict]:
         """(samples at sample_rate, what happened). `text` is normalized already.
 
         A take with almost no voice is taken again with the next seed. LACI's
@@ -313,12 +335,13 @@ class Zonos3:
         best: tuple[array, dict] | None = None
         for attempt in range(_RETRIES + 1):
             try:
-                samples, record = self._once(text, language, embedding, seed + attempt, rate, laci, cancel)
+                samples, record = self._once(text, language, embedding, seed + attempt, rate, laci, cancel, controls)
             except EngineError as exc:
                 if laci and 'too long for the alignment probe' in str(exc):
                     log.info('the line is too long for LACI; speaking it without')
                     laci = False
-                    samples, record = self._once(text, language, embedding, seed + attempt, rate, laci, cancel)
+                    samples, record = self._once(text, language, embedding, seed + attempt, rate, laci, cancel,
+                                                 controls)
                 else:
                     raise
             record['seed'] = seed + attempt
