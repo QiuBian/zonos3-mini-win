@@ -150,6 +150,43 @@ static bool parse_controls(const char * json_text, std::map<std::string, double>
     return true;
 }
 
+// Word-level controls: [{"start": char, "end": char, "controls": {"<id>": dose}}].
+static bool parse_spans(const char * json_text, std::vector<zonos3_control_span> & out, std::string & err) {
+    if (!json_text || !*json_text) return true;
+    const nlohmann::json j = nlohmann::json::parse(json_text, nullptr, false);
+    if (j.is_discarded() || !j.is_array()) {
+        err = "spans must be a JSON array of {start, end, controls}";
+        return false;
+    }
+    for (const auto & entry : j) {
+        if (!entry.is_object()) {
+            err = "a span must be an object";
+            return false;
+        }
+        zonos3_control_span span;
+        span.start = entry.value("start", 0);
+        span.end = entry.value("end", 0);
+        if (span.start < 0 || span.end <= span.start) {
+            err = "a span needs start >= 0 and end > start";
+            return false;
+        }
+        const auto controls = entry.find("controls");
+        if (controls == entry.end() || !controls->is_object()) {
+            err = "a span needs a controls object";
+            return false;
+        }
+        for (auto it = controls->begin(); it != controls->end(); ++it) {
+            if (!it.value().is_number()) {
+                err = "span control '" + it.key() + "' is not a number";
+                return false;
+            }
+            span.controls[it.key()] = it.value().get<double>();
+        }
+        out.push_back(std::move(span));
+    }
+    return true;
+}
+
 int zs_steer_load(zs_ctx * c, const char * path, char * err, int err_len) {
     if (!c || !path || !*path) return -1;
     if (c->have_steer && c->steer_path == path) return 0;
@@ -335,7 +372,6 @@ static bool run_laci(zs_ctx * c, const zonos3_prompt & prompt, const zonos3_laci
     slot.n_past = n0;
     slot.prefill = P;
     slot.probe = probe;
-    if (steer && !steer->hidden.empty()) slot.steer = steer->hidden;
     set_windows(slot, laci.probe_mask());
     auto smp = new_sampler(model, sp, sp.seed);
     int attempt_max = max_frames;
@@ -406,7 +442,12 @@ static bool run_laci(zs_ctx * c, const zonos3_prompt & prompt, const zonos3_laci
             continue;  // the next row comes from the prefill logits
         }
 
-        if (steer && !steer->hidden.empty()) slot.steer = steer->hidden;
+        if (steer) {
+            // Audio frames generated so far (the silence prefill does not count), so spans and the
+            // release schedule line up with the utterance.
+            const int frame = (int) (codes.size() / ncb) - P;
+            steer->delta_at(frame, slot.steer);
+        }
         if (!zonos3_batch_step(c->bc, {&slot})) {
             err = "decode step failed";
             return false;
@@ -462,19 +503,25 @@ int zs_synthesize(zs_ctx * c, const zs_request * req, float ** out, int64_t * n_
         std::vector<float> steered_embedding;
         const float * embedding = req->embedding;
         const zonos3_steering * steer_ptr = nullptr;
-        if (req->controls && *req->controls && *req->controls != '\0') {
+        const bool want_steer = (req->controls && *req->controls) || (req->spans && *req->spans);
+        if (want_steer) {
             if (!c->have_steer) {
                 set_err(err, err_len, "controls were given but no steering bundle (steer.gguf) is loaded");
                 return -1;
             }
             std::map<std::string, double> doses;
+            std::vector<zonos3_control_span> spans;
             std::string ctl_err;
             if (!parse_controls(req->controls, doses, ctl_err)) {
                 set_err(err, err_len, ctl_err);
                 return -1;
             }
+            if (!parse_spans(req->spans, spans, ctl_err)) {
+                set_err(err, err_len, ctl_err);
+                return -1;
+            }
             if (req->embedding) steered_embedding.assign(req->embedding, req->embedding + model.hp.speaker_dim);
-            if (!zonos3_steer_resolve(c->steer, doses, {}, utf8_chars(text), 1.0,
+            if (!zonos3_steer_resolve(c->steer, doses, spans, utf8_chars(text), 1.0,
                                       req->embedding ? &steered_embedding : nullptr, steering, ctl_err)) {
                 set_err(err, err_len, ctl_err);
                 return -1;
