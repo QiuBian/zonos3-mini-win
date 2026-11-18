@@ -12,8 +12,10 @@
 #include "zonos3-sampler.h"
 #include "zonos3-short-text.h"
 #include "zonos3-span-follow.h"
+#include "zonos3-steer.h"
 #include "zonos3-text.h"
 #include "zonos3-tokenizer.h"
+#include "json.hpp"
 #include "zac.h"
 #include "spk-encoder.h"
 
@@ -43,6 +45,10 @@ struct zs_ctx {
     int capacity = 0;
     std::map<std::string, zonos3_laci::LaciHeads> heads;  // by path
     std::unordered_map<int32_t, int> token_bytes;
+    // Emotion/style steering bundle (steer.gguf), loaded on demand by zs_steer_load.
+    zonos3_steer_bundle steer;
+    bool have_steer = false;
+    std::string steer_path;
 };
 
 static void set_err(char * err, int len, const std::string & msg) {
@@ -115,6 +121,63 @@ int zs_embed(zs_ctx * c, const float * pcm, int64_t n, int sample_rate, float * 
     if (!spk_embed(c->spk, pcm, n, sample_rate, emb) || emb.size() != c->model.hp.speaker_dim) return -1;
     std::copy(emb.begin(), emb.end(), out);
     return 0;
+}
+
+// ---- Emotion / style steering (steer.gguf: zonos3-steer.h) ------------------
+
+// UTF-8 characters (code points) of the text, for the character-rate schedule.
+static int utf8_chars(const std::string & s) {
+    int n = 0;
+    for (unsigned char ch : s) n += (ch & 0xC0) != 0x80;
+    return n;
+}
+
+// {"<direction id>": dose, ...} -> the map zonos3_steer_resolve takes.
+static bool parse_controls(const char * json_text, std::map<std::string, double> & out, std::string & err) {
+    if (!json_text || !*json_text) return true;
+    const nlohmann::json j = nlohmann::json::parse(json_text, nullptr, false);
+    if (j.is_discarded() || !j.is_object()) {
+        err = "controls must be a JSON object of {\"direction.id\": dose}";
+        return false;
+    }
+    for (auto it = j.begin(); it != j.end(); ++it) {
+        if (!it.value().is_number()) {
+            err = "control '" + it.key() + "' is not a number";
+            return false;
+        }
+        out[it.key()] = it.value().get<double>();
+    }
+    return true;
+}
+
+int zs_steer_load(zs_ctx * c, const char * path, char * err, int err_len) {
+    if (!c || !path || !*path) return -1;
+    if (c->have_steer && c->steer_path == path) return 0;
+    std::string e;
+    zonos3_steer_bundle b;
+    if (!zonos3_steer_load(b, path, c->model, e)) {
+        set_err(err, err_len, e);
+        return -1;
+    }
+    // The batch context owns the steering sources: rebuild it with the bundle's layout.
+    if (c->have_bc) {
+        zonos3_batch_free(c->bc);
+        c->have_bc = false;
+    }
+    c->steer = std::move(b);
+    c->steer_path = path;
+    c->have_steer = true;
+    return 0;
+}
+
+int zs_steer_controls(zs_ctx * c, char * out, int out_len) {
+    if (!c || !c->have_steer) {
+        if (out && out_len > 0) out[0] = 0;
+        return 0;
+    }
+    const std::string s = zonos3_steer_controls_json(c->steer, (int) c->model.hp.speaker_dim);
+    if (out && out_len > 0) snprintf(out, (size_t) out_len, "%s", s.c_str());
+    return (int) s.size();
 }
 
 // The character range of `text` behind each id of its text span (server/generate.cpp text_token_ranges).
@@ -207,7 +270,8 @@ static std::unique_ptr<zonos3_sampler> new_sampler(const zonos3_model & model, z
 // audio stream (silence-prefill rows first) and `eos_frame` with its EOS stream row (-1: none).
 static bool run_laci(zs_ctx * c, const zonos3_prompt & prompt, const zonos3_laci::LaciHeads & heads,
                      std::optional<int> short_text, const zonos3_sampling & sp, int max_frames,
-                     bool tail_cut, const volatile int * cancel, std::vector<int32_t> & codes, int & eos_frame, std::string & info,
+                     bool tail_cut, const volatile int * cancel, const zonos3_steering * steer,
+                     std::vector<int32_t> & codes, int & eos_frame, std::string & info,
                      std::string & err) {
     const zonos3_model & model = c->model;
     const auto & hp = model.hp;
@@ -217,7 +281,8 @@ static bool run_laci(zs_ctx * c, const zonos3_prompt & prompt, const zonos3_laci
         c->capacity = std::min((int) hp.n_ctx_train, zonos3_generation().max_frames + 4096);
         zonos3_batch_features features;
         features.probe_max_text = std::min(2048, c->capacity);
-        if (!zonos3_batch_init(c->bc, model, 1, c->capacity, {}, features)) {
+        const std::vector<int> sources = c->have_steer ? c->steer.sources : std::vector<int>{};
+        if (!zonos3_batch_init(c->bc, model, 1, c->capacity, sources, features)) {
             err = "batch init failed";
             return false;
         }
@@ -270,6 +335,7 @@ static bool run_laci(zs_ctx * c, const zonos3_prompt & prompt, const zonos3_laci
     slot.n_past = n0;
     slot.prefill = P;
     slot.probe = probe;
+    if (steer && !steer->hidden.empty()) slot.steer = steer->hidden;
     set_windows(slot, laci.probe_mask());
     auto smp = new_sampler(model, sp, sp.seed);
     int attempt_max = max_frames;
@@ -340,6 +406,7 @@ static bool run_laci(zs_ctx * c, const zonos3_prompt & prompt, const zonos3_laci
             continue;  // the next row comes from the prefill logits
         }
 
+        if (steer && !steer->hidden.empty()) slot.steer = steer->hidden;
         if (!zonos3_batch_step(c->bc, {&slot})) {
             err = "decode step failed";
             return false;
@@ -389,8 +456,35 @@ int zs_synthesize(zs_ctx * c, const zs_request * req, float ** out, int64_t * n_
         std::optional<int> short_text;
         if (use_laci && req->short_text && req->language) short_text = short_text_prompt(c, req->language, text);
 
+        // Emotion/style steering: resolve the doses into a hidden delta. Raw-space directions move the speaker
+        // embedding, so it is copied and may be rewritten in place.
+        zonos3_steering steering;
+        std::vector<float> steered_embedding;
+        const float * embedding = req->embedding;
+        const zonos3_steering * steer_ptr = nullptr;
+        if (req->controls && *req->controls && *req->controls != '\0') {
+            if (!c->have_steer) {
+                set_err(err, err_len, "controls were given but no steering bundle (steer.gguf) is loaded");
+                return -1;
+            }
+            std::map<std::string, double> doses;
+            std::string ctl_err;
+            if (!parse_controls(req->controls, doses, ctl_err)) {
+                set_err(err, err_len, ctl_err);
+                return -1;
+            }
+            if (req->embedding) steered_embedding.assign(req->embedding, req->embedding + model.hp.speaker_dim);
+            if (!zonos3_steer_resolve(c->steer, doses, {}, utf8_chars(text), 1.0,
+                                      req->embedding ? &steered_embedding : nullptr, steering, ctl_err)) {
+                set_err(err, err_len, ctl_err);
+                return -1;
+            }
+            if (req->embedding) embedding = steered_embedding.data();
+            steer_ptr = &steering;
+        }
+
         zonos3_prompt_options opt;
-        if (req->embedding) opt.speaker_embedding = req->embedding;
+        if (embedding) opt.speaker_embedding = embedding;
         if (req->speaking_rate >= 0) {
             opt.condition_buckets.assign(model.hp.cond_bucket_counts.begin(), model.hp.cond_bucket_counts.end());
             const int idx = zonos3_condition_index(model, "speaking_rate");
@@ -416,7 +510,8 @@ int zs_synthesize(zs_ctx * c, const zs_request * req, float ** out, int64_t * n_
             auto it = c->heads.find(req->laci_heads);
             if (it == c->heads.end()) it = c->heads.emplace(req->laci_heads, zonos3_laci::LaciHeads::load(req->laci_heads)).first;
             std::string record, e;
-            if (!run_laci(c, prompt, it->second, short_text, sp, max_frames, req->tail_cut != 0, req->cancel, all, eos_frame, record, e)) {
+            if (!run_laci(c, prompt, it->second, short_text, sp, max_frames, req->tail_cut != 0, req->cancel,
+                          steer_ptr, all, eos_frame, record, e)) {
                 set_err(err, err_len, e);
                 return -1;
             }
@@ -429,7 +524,7 @@ int zs_synthesize(zs_ctx * c, const zs_request * req, float ** out, int64_t * n_
             const volatile int * cancel = req->cancel;
             if (cancel) on_frame = [cancel](int, const int32_t *, int) { return *cancel == 0; };
             const int n_frames = zonos3_generate(model, prompt, max_frames, sp, req->embedding ? req->cfg_scale : 1.0f,
-                                                 codes, eos_frame, true, nullptr, on_frame);
+                                                 codes, eos_frame, true, nullptr, on_frame, steer_ptr);
             if (n_frames < 0) {
                 set_err(err, err_len, "generation failed");
                 return -1;
