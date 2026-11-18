@@ -187,6 +187,24 @@ static bool parse_spans(const char * json_text, std::vector<zonos3_control_span>
     return true;
 }
 
+// Word-level spans are written in characters; Chinese/Japanese/Korean characters hold far more speech than a
+// Latin letter, so a 1:1 character-to-frame rate would end every span early. Weight by the CJK share of the line.
+static double span_frames_per_char(const std::string & text) {
+    size_t total = 0, cjk = 0;
+    for (size_t i = 0; i < text.size();) {
+        const unsigned char b = (unsigned char) text[i];
+        if (b < 0x80) i += 1;
+        else if ((b & 0xE0) == 0xC0) i += 2;
+        else if ((b & 0xF0) == 0xE0) {
+            if (b >= 0xE3 && b <= 0xEA) ++cjk;  // U+3000..U+9FFF / Hangul
+            i += 3;
+        } else i += 4;
+        ++total;
+    }
+    if (!total) return 1.0;
+    return 1.0 + 2.5 * ((double) cjk / (double) total);
+}
+
 int zs_steer_load(zs_ctx * c, const char * path, char * err, int err_len) {
     if (!c || !path || !*path) return -1;
     if (c->have_steer && c->steer_path == path) return 0;
@@ -382,6 +400,7 @@ static bool run_laci(zs_ctx * c, const zonos3_prompt & prompt, const zonos3_laci
         return false;
     }
     codes = zonos3_prefill_codes(model, prompt);
+    int frames_done = 0;
     auto push_rows = [&](zonos3_laci::RowRange r) {
         const auto & stream = laci.stream();
         for (int i = r.begin; i < r.end; ++i) codes.insert(codes.end(), stream[i].begin(), stream[i].begin() + ncb);
@@ -443,15 +462,14 @@ static bool run_laci(zs_ctx * c, const zonos3_prompt & prompt, const zonos3_laci
         }
 
         if (steer) {
-            // Audio frames generated so far (the silence prefill does not count), so spans and the
-            // release schedule line up with the utterance.
-            const int frame = (int) (codes.size() / ncb) - P;
-            steer->delta_at(frame, slot.steer);
+            // Rows generated so far, silence prefill excluded; `codes` is not the running stream here.
+            steer->delta_at(frames_done, slot.steer);
         }
         if (!zonos3_batch_step(c->bc, {&slot})) {
             err = "decode step failed";
             return false;
         }
+        ++frames_done;
         memcpy(logits.data(), zonos3_batch_slot_logits(c->bc, 0), (size_t) av * ncb * sizeof(float));
         readout_ready = true;
     }
@@ -521,7 +539,7 @@ int zs_synthesize(zs_ctx * c, const zs_request * req, float ** out, int64_t * n_
                 return -1;
             }
             if (req->embedding) steered_embedding.assign(req->embedding, req->embedding + model.hp.speaker_dim);
-            if (!zonos3_steer_resolve(c->steer, doses, spans, utf8_chars(text), 1.0,
+            if (!zonos3_steer_resolve(c->steer, doses, spans, utf8_chars(text), span_frames_per_char(std::string(text)),
                                       req->embedding ? &steered_embedding : nullptr, steering, ctl_err)) {
                 set_err(err, err_len, ctl_err);
                 return -1;
