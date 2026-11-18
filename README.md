@@ -4,8 +4,6 @@
 > **Only for building Windows x64 CPU runtime on GitHub Actions**
 > (`zonos3_c.dll` + `laci_heads` + `languages.json`), for local TTS gateway invocation.
 > Code and model weights are copyrighted by upstream authors and Zyphra (Apache-2.0 / MIT). This repository does not distribute official builds and provides no warranties whatsoever.
->
-> **Build method**: Actions → `Release` → *Run workflow* → fill `windows-x86_64` in `targets` → download the artifact at the bottom of this run page after completion.
 
 # ZONOS3-Mini add-on for Subtitld
 
