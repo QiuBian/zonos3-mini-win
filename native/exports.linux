@@ -1,0 +1,6 @@
+{
+  global:
+    zs_*;
+  local:
+    *;
+};

@@ -1,0 +1,31 @@
+{
+ "groups": {
+  "core": {
+   "repo": "Zyphra/ZONOS3-Mini",
+   "revision": "2921b8821772b0bd10a04456863d21abf9d2f283",
+   "files": [
+    {
+     "path": "gguf/backbone-ptq.gguf",
+     "size": 663150624,
+     "sha256": "66fceb6d73a8c30bde80249e4112bb308380ab7f3384fa11c8e4048115e4ceec"
+    },
+    {
+     "path": "gguf/zac-keep2.gguf",
+     "size": 452325440,
+     "sha256": "834e5b70b88294afc3c702a478487e0664dcc6b574c16fc6167d72444aabeafd"
+    }
+   ]
+  },
+  "clone": {
+   "repo": "Zyphra/ZONOS3-Mini",
+   "revision": "2921b8821772b0bd10a04456863d21abf9d2f283",
+   "files": [
+    {
+     "path": "gguf/spk-encoder.gguf",
+     "size": 45385728,
+     "sha256": "9539f340b70be246005403b9c254732e180e85e0b3c57fb1973f0d6bc6c59bdc"
+    }
+   ]
+  }
+ }
+}

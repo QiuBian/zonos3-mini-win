@@ -1,0 +1,285 @@
+{
+  "manifest_version": 1,
+  "id": "zonos3",
+  "version": "26.11.1",
+  "display_name": "ZONOS3-Mini (offline, voice clone, 43 languages)",
+  "summary": "Zyphra's ZONOS3-Mini speaks 43 languages at 44.1 kHz, in 27 stock voices or in the speaker's own voice, cloned from a few seconds of the video. Runs on the CPU, about twice as fast as real time, and checks each line as it speaks it so it doesn't skip words or run on after the text. The 1,115 MB model downloads on the first line; cloning needs 45 MB more.",
+  "author": "Subtitld",
+  "homepage": "https://github.com/Subtitld/addon-zonos3",
+  "license": "Apache-2.0 (add-on; ZONOS3-Mini weights and default voices); MIT (ZONOS3-Mini runtime, ggml, nlohmann/json); MIT, Apache-2.0 and Unicode-3.0 (zyphra-textnorm); OpenLDAP (LMDB); BSD-3-Clause (pocketfft)",
+  "executable": "bin/zonos3-addon",
+  "protocol": 1,
+  "startup_timeout_sec": 30,
+  "platforms": [
+    "linux",
+    "macos",
+    "windows"
+  ],
+  "tasks": [
+    "tts.synthesize"
+  ],
+  "compute": "cpu",
+  "voice_clone": true,
+  "languages": [
+    "en",
+    "fr",
+    "de",
+    "es",
+    "it",
+    "pt",
+    "ja",
+    "zh",
+    "ko",
+    "ar",
+    "bn",
+    "bg",
+    "cs",
+    "da",
+    "nl",
+    "fi",
+    "ka",
+    "el",
+    "gu",
+    "he",
+    "hi",
+    "hu",
+    "id",
+    "kn",
+    "ms",
+    "ml",
+    "mr",
+    "nb",
+    "or",
+    "pl",
+    "pa",
+    "ro",
+    "ru",
+    "sk",
+    "sv",
+    "tl",
+    "ta",
+    "te",
+    "th",
+    "tr",
+    "uk",
+    "ur",
+    "vi"
+  ],
+  "voices": [
+    {
+      "id": "zonos3-clone",
+      "language": "*",
+      "display_name": "Speaker's own voice (cloned from the video)",
+      "sample_rate": 44100,
+      "requires": [
+        "voice_ref_audio"
+      ]
+    },
+    {
+      "id": "zonos3-cillian",
+      "language": "*",
+      "display_name": "Cillian (Irish, English, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-imogen",
+      "language": "*",
+      "display_name": "Imogen (British, English, female)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-jett",
+      "language": "*",
+      "display_name": "Jett (energetic, English, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-morgana",
+      "language": "*",
+      "display_name": "Morgana (witch, English, female)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-rupert",
+      "language": "*",
+      "display_name": "Rupert (British, English, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-sakura",
+      "language": "*",
+      "display_name": "Sakura (anime, English, female)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-savannah",
+      "language": "*",
+      "display_name": "Savannah (American, English, female)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-thaddeus",
+      "language": "*",
+      "display_name": "Thaddeus (announcer, English, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-willow",
+      "language": "*",
+      "display_name": "Willow (ASMR, English, female)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-wyatt",
+      "language": "*",
+      "display_name": "Wyatt (American, English, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-gaspard",
+      "language": "*",
+      "display_name": "Gaspard (French, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-liesel",
+      "language": "*",
+      "display_name": "Liesel (German, female)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-wolfgang",
+      "language": "*",
+      "display_name": "Wolfgang (German, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-ananya",
+      "language": "*",
+      "display_name": "Ananya (Hindi, female)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-arjun",
+      "language": "*",
+      "display_name": "Arjun (Hindi, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-ginevra",
+      "language": "*",
+      "display_name": "Ginevra (Italian, female)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-lorenzo",
+      "language": "*",
+      "display_name": "Lorenzo (Italian, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-minjun",
+      "language": "*",
+      "display_name": "Minjun (Korean, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-seoyeon",
+      "language": "*",
+      "display_name": "Seoyeon (Korean, female)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-haoran",
+      "language": "*",
+      "display_name": "Haoran (energetic, Mandarin Chinese, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-meilin",
+      "language": "*",
+      "display_name": "Meilin (energetic, Mandarin Chinese, female)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-leonor",
+      "language": "*",
+      "display_name": "Leonor (Portuguese, female)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-thiago",
+      "language": "*",
+      "display_name": "Thiago (Portuguese, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-rodrigo",
+      "language": "*",
+      "display_name": "Rodrigo (Spanish, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-ximena",
+      "language": "*",
+      "display_name": "Ximena (Spanish, female)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-chaitanya",
+      "language": "*",
+      "display_name": "Chaitanya (Telugu, male)",
+      "sample_rate": 44100
+    },
+    {
+      "id": "zonos3-sravya",
+      "language": "*",
+      "display_name": "Sravya (Telugu, female)",
+      "sample_rate": 44100
+    }
+  ],
+  "models": [
+    {
+      "id": "zonos3-mini",
+      "display_name": "ZONOS3-Mini (backbone Q4/Q8 + waveform decoder, GGUF)",
+      "repo": "Zyphra/ZONOS3-Mini",
+      "revision": "2921b8821772b0bd10a04456863d21abf9d2f283",
+      "size_mb": 1115,
+      "license": "Apache-2.0",
+      "bundled": false,
+      "default": true
+    },
+    {
+      "id": "zonos3-speaker-encoder",
+      "display_name": "ZONOS3-Mini speaker encoder (voice cloning)",
+      "repo": "Zyphra/ZONOS3-Mini",
+      "revision": "2921b8821772b0bd10a04456863d21abf9d2f283",
+      "size_mb": 45,
+      "license": "Apache-2.0",
+      "bundled": false,
+      "default": false
+    }
+  ],
+  "disk_required_mb": 1300,
+  "ram_required_mb": 2048,
+  "config_schema": {
+    "fields": [
+      {
+        "key": "threads",
+        "type": "int",
+        "label": "CPU threads",
+        "default": 0,
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "help": "0 uses the number of logical processors, at most 8. More is rarely faster."
+      },
+      {
+        "key": "voice_ref_audio",
+        "type": "file",
+        "label": "Fallback reference clip",
+        "help": "Cloned by the speaker's own voice when Subtitld has no clip of the speaker to send: 5 to 20 seconds of one person speaking, clean and not a phone recording."
+      }
+    ]
+  }
+}

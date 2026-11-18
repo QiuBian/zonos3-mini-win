@@ -1,0 +1,8 @@
+_zs_load
+_zs_unload
+_zs_sample_rate
+_zs_speaker_dim
+_zs_embed
+_zs_synthesize
+_zs_free
+_zs_version

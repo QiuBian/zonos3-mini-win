@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "subtitld-addon-zonos3"
+version = "26.11.1"
+description = "Subtitld add-on: offline text-to-speech with Zyphra's ZONOS3-Mini, 43 languages, 27 voices and voice cloning"
+readme = "README.md"
+license = "Apache-2.0"
+authors = [{ name = "Subtitld", email = "jbopen@gmail.com" }]
+requires-python = ">=3.10"
+
+# Speech is Zyphra's ggml runtime, built from native/ by tools/build_native.py
+# into build/assets/ and loaded with ctypes; reference clips that are not WAV
+# go through the host's ffmpeg; the download uses the standard library.
+# zyphra-textnorm turns written text into its spoken form (a Rust extension,
+# MIT, Apache-2.0 and Unicode-3.0).
+dependencies = ["zyphra-textnorm==0.3.1"]
+
+[project.optional-dependencies]
+build = ["pyinstaller>=6.10"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+zonos3-addon = "zonos3_addon.__main__:main"
+
+[tool.setuptools]
+packages = ["zonos3_addon"]
+
+[tool.setuptools.package-data]
+zonos3_addon = ["pins.json", "voices.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

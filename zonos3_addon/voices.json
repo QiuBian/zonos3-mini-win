@@ -1,0 +1,276 @@
+{
+ "repo": "Zyphra/ZONOS3-Mini",
+ "revision": "2921b8821772b0bd10a04456863d21abf9d2f283",
+ "voices": [
+  {
+   "id": "zonos3-cillian",
+   "name": "Cillian",
+   "language": "English",
+   "style": "Irish",
+   "gender": "male",
+   "upstream_id": "default_2c5123a959875341",
+   "source": "gguf/voices/English/Cillian_en-Irish_M_1.embedding.npy",
+   "embedding": "YVg1P3CIWr7ffYw+QPJ8u0zGFj4oe0Q8ZdG5PhzdiL0A7S++PtMCP6bWVL47u4q+sQRtPWQepL1Q5n8+30txP+EfgL7+8Ws96A18vrds3T7QnWY/WinOPvXZ175NLyo+9seOPq6Esj1RfA++A/0Vv2T3fLy8wyu/XH71vOMGvj1bkvC9/tGePbhW9T0G5u8+cBJnPng3tz4SecC+5Fl6PQhUIj4+mkO+KwHyvkH/tL5wOKm8WX+pvoGQYb8t1Ui/fOaOPqmNgb46cNS9bieVveCy1T1Mzwy/xs7PPrzYq774kSY/9HiZPi8Bq73NMAw/i99iPkhnHLxVHK8+jaoMP87zn744/6Y8elDPPtU+D72elyu/skQFvodkGj6y3oQ+5GAcPRQrxbxa5QQ/I9eAvry+dT1kPsy+v77Fvi56g75GFe88gwYlvhRibr96u96+1pExv8HPzT0SArA+trX4PcxfOr6q6xk/7FC9Pet2LT/9M4A+dIlzv9+9kj5AgTI9U3jXPpCUBT62ByQ/9JEavyzLsr5yZIO+ggy7voiK4j4t16s+aB0sP+1u9j5wbcy+ozGnPWDTLL49enE/CJGWPO5ObD7yxzw/Ix3yPZiDJj2Qm4s9QoMmPngxED+wzeE+8GqJPVBFir7aJoA9fYzzvjg04j1l1JG9aiXJPSiiHD/7zc69rZ0yPwcF9j4PjFC+wnlLvePt+r4AaCC+6shhPfldZ776iJA9WGkcPg34qL0QP4893dB2vlALyb54eSC+yrCuvo//lD4ZsVW+GtTCPjmU3L3AUS691nlyvilNN78kvgw/5JqLvtINpz0pG0s/xFE3vtyvIb3Q6Ku+ipWCvFxBbL6gH7O9Bt2dvhovTD6qteo+Tvr7PpTWJL3E3Yq8hL2FPWHy3T65p3O+LBQEvoALKrwqGdE+RM/JPOPgp77IdYa+CLXDPpoDGb6yose+AB1APAlqIj4wg3q9csZnPiRdxj7zySy+hJIlvvuYiT54R668InvrvlC9X73Ap0E8"
+  },
+  {
+   "id": "zonos3-imogen",
+   "name": "Imogen",
+   "language": "English",
+   "style": "British",
+   "gender": "female",
+   "upstream_id": "default_b78b28baf5c31a1d",
+   "source": "gguf/voices/English/Imogen_en-British_F_1.embedding.npy",
+   "embedding": "M2ikPVMNsT2QxEI+my3IPcQUibz5os693quTvpjLtz2wlEa9wHasuwDQ0z4EJkG+NVSEPgTm1j6oPQe+tvS0Paqas74Z7/q+wAGVvkhigz5IzqM9V89lvziiIj0KHfm+aSEZPSxdDL4G54o+SlyGvhBuHT9UFEK/Igf/vgSGtD5/GCU/bp0JPzp6cb45cZm+ANZXPdpFpj43hX8+1jEovtiiLj48/YQ+xbjXPmJ/f71O382+035FvkLcZz01jgW+ymqfPmSG6b44/X49+gi5vgAQ6D6a/YU+fZuOvUUTNT8mMJW+VXfGPiTBqb34eVq+teRBvlBl5DszjgI+b8ryvoKTJr52/Rk/kDChPijGpT10ioM83EG/vogESj4Bj94+2sqqvqCfwD3SSOK+0SxRvtRJFz7aAXI9E4aFvrZNoD0LkUG+rmaBvZhdsDxeFra8Axj+vUnUZr68BcK+Qnp/PWxJFDxUDPg+v4AePgx5BT55ppo+qDzPvcy3k76LmQq/lGexvLiqJz+5VuI+qSXcvjpIib3b75Y9UKufPXFE1D6MO4w+DDi0PLa7Eb4wes0+T7iHPcy/rz1BQto9N6XwPdBKB76T1oe+JAAvv08ovj5WkUc+IskKv2bMJL4aCAc/Vwscvo7BtL0e/ya9eBegvhfFET48WkW+bJ/WvYDLCrzxMzM+FpGDvRNCVj4KEj8/5EUFvorqgT70TpI+MORhvhyEGz28J5S9kDwjPBRXuT7Gs6I9MDeIvuAgD7wa5n4+LAYFPsDNsr4MthA9SeNdPjRMzr281ES+1dLHvpTijj4QVdW9jEgLvoa+Br+Opfu9Cl4xPb4CIr4RWcu9uNsOvrVX875n1Uy+xpOOPV7dqL4cgca8zETjPmCp6LxJvBG+QqzSPgAk1zkemny+HK4lPgK+wj66a3e9bCmNPFAXFT7m4xS/r28dP5UABj/oAM69/XErvy8rvT2IoEi+7wIyvw+OsT5lzwy+2EcZPeIkqL5Qyfw+D+mRPvygkr4y9R0+"
+  },
+  {
+   "id": "zonos3-jett",
+   "name": "Jett",
+   "language": "English",
+   "style": "energetic",
+   "gender": "male",
+   "upstream_id": "default_c95cf57259ed7313",
+   "source": "gguf/voices/English/Jett_en-energetic_M_1.embedding.npy",
+   "embedding": "DgA6PuKqej6BT5m+7mSSvmj5Cz5dm8a96/HUvZZmpD3WG969oGwevgA0IT3/Ste+thWWPuK6Cj/pAUU/TuwfPmub5L1Gs9o+cgAVvTrTAz4PmFc+KGQEvqBS/Dw9PsC9J/wgP581hj1AHtc8VOGUPATGmz22JUG+F6WwvhPnAD8O9zE+bIPgvSqzSb44+Zi8xAlxP3aEFT502NY9QvKgPVLUPD6ygzM+kWAuP18AxT7ywSC9XGgEPndwqT0cU/q+Mj+cPn35P76wgZs+B9j1PoBo3L0Nz989XjhAPvHAwz6o1Sw+lpPxPfbO6L1shbC+/uKevkDpxT5C386+/HTNvvQ2yr4GlwI+nD3MPiSNRb9CrpK+DH3fPXY9BD+G2bo9jU2Ivs2Qnz5B+6c+bzEEvXmgWr3DWcy+fQedvZSLh76IM5e9QCqYPqSii748p+A9+/qOvszZOr4ih6E+zuOBvmjo0jz6WEc+OJaKvPQFaT4IJFC+Vzx0Pq18pr6Br36+T9JEvc+8bD+ucvU+IS0EP6eLDT6mmqI+RN5FvsMcGD8OGbY+63HUPvPK5j62Wo++Jh/NPhBQvL5erwI/iM1tPsSe476UkXa+520RP8m9lr6jnOA9kELSvqQogL4q0aM+CRZ2vrdZOL+gv8U94xvfvmS1sj5aSVs+DOoMvkg2zL5ltSa+9XJ+Pk725T3/WzW+YgSWPLpTKD+SQZq9gNF4u2iiLz0CraI+sg10vahPmT79UIE+RF+fvvZY+z1SH+M+fpQLPmC7Ib3wRO+8dQgTvkBkZz6Yl2c+CcFivgh8zD4oWP883HQTPj6zq76Cmgg/akoRPmgunDzVasw+LPGhPmitB76IcvG9LAeKvk9c9D14eP4+l4JlPoCo+Dt8x+u9mFHDPUchQj0r6ca+CCcnPhpPBz5qEEm+pYulvhgMOL435as9SSShPoQsPTz1JpI+zMbgPqTVOj1zSdG80qj1vfTbLj9WY86+gADCPDRXAz44hnY9GvhtPixnHr1GLkK+"
+  },
+  {
+   "id": "zonos3-morgana",
+   "name": "Morgana",
+   "language": "English",
+   "style": "witch",
+   "gender": "female",
+   "upstream_id": "default_40a3ba1017bfb68a",
+   "source": "gguf/voices/English/Morgana_en-witch_F_1.embedding.npy",
+   "embedding": "stJSvrN7+b2Uf/y+mChbvXK12b6YOd89g0S5viajtr7bVaQ+2PFGv2IXIT6vdSu//v8bPofUJr1ZBxC//EUwPx0gtb4ysL0+orBuPsJmKr02If0+4ZW1Pqyif76nt7W+fj7ZPmASLz10Kgy/st4vPqiOAj/Gyt49npQTPdqhxL3MoO2+aHFkP4g+zT4KUZg+0P83PncGFT+PkfS9IMaNO9O7nj4AqjC5j1AQP6AK2TuSwMG+wAsGPZhSDb7CkSO9oDAGP+ezoL50qNk+kt1oP5wQ/TzUtQ8/FtVRv/JV8T7Q+BO+ACp9PACVrL5blbA+gB0OO5yZbz6PcAI/aE6sPpmbG7+wMTW9NlEzPkA/zbx8kLS+iarzvjB3CbxGPF2+ABL/ulSLWT6+jFG+l1eAvmFFoD1z94O+CNMtPytaC76OYei9qD76vX3V1L7w49++XZMavldSHT8GtO29l4HPPjYy9D7YzA8/LED7PGiu0jzsoI6+Q9cJPmCRWT2+aNM9SDmZPtYCpj5jPQ6+FIwXvs2xHb85HFW+gktKvh7Kzj6uzQ8/xvO7PojkErzutog9pwzkvfLwyz5K2F294hWkPuR+gj5GYXG/RN7ZPgLuNL/c6EC/4AwxvWzh0j5aMUi9wFTau+yUlr4S5oG+cK0jPibrbz6NxyI/xA9ovi9alr4AioG+5emEPX1LCL9SWy4+KEEWvQSwBz4Wkl4+NKx0PzrCgz5vNgo/umd3vmIWlz504jI+QxGNvsKBCj9nh52+KaDjPf475z5gUQI/SFwLv6rjEr2omky+gLQZuuKlhr4Etpm+KCQWPwEPpL4GCjU+zpOlvnUDYb5ih8A+CTwevwwcoz6swiw+sME8volqoT1G9Vs+KoCmvqCcL7vDfSM+BCTcPhMSGz/y4w8/RrK6vnDRzDsw2Ne7cqKPPkijFr0IRJi9oT2kPkaQBT9EoXW8jHHUPemXcL6sq6i8ZN8vvnrxQz44f+s9RqKovSicTz/bYXW+17IxPkLKwL4Nxw++"
+  },
+  {
+   "id": "zonos3-rupert",
+   "name": "Rupert",
+   "language": "English",
+   "style": "British",
+   "gender": "male",
+   "upstream_id": "default_3765f0d1140c05c0",
+   "source": "gguf/voices/English/Rupert_en-British_M_1.embedding.npy",
+   "embedding": "VJbyPgAOOjo4GIM82kedPOQeu75iqrw+RntvveBOwjryzUU9YPG5vr6lCD6em0K+kb2bPbj9gb1a3xa+d0fVPt7SkL1ncVi+/6c0Ph445z7o4jk9u0nDvs276r6gltw7xtOFPoyaxj3Xkl0+kD3vvgx+vLwqwLC+k6pYvjDGibsS/qQ95+JsPlA28Dxh9Ya9JGH1PAXF6T3U5a0+R/G8PoI1PL2gg/4+vqP6vdKh0ryEjc+8G1eRPmy2Tj64Vv69xdkSPVrUqb5Li5M+nYiCPaWNtT7GMOs9bWFrPj1ACD69zVU+9ELOPfyTRz7ZRrU+siFNPXhDUTxV2Yo+ENkuvtBN3Lwsu1E+ME6rvdqN5r4kvne+pvknv8oQJj5cWzc+Qw2gvkRqx76ol6k+8wfIvuRYJj/GVwk+8471vX81ob08k5K+g+o6vmT3yL6j7dc9WnXvvhb4mD5c5J8+01TGPY+9Mj4EyYA+RKqevoT2Xj8rcaI+vDgPvv6Aq77bKM09WK7APhVsoz0FzpM+EEIivB70G76IA+u7Alt1vqSyVT51JTe+aBX9PK5zkj1GsJU+GJvLvRYZLL4s4cU+4CySPaIzcz1A+HM+ocSGvqAckD1Yyxo+tMiwvuBEZD7BTo6+kiY/voZEDL+kiCM9wsT1vWDYWzzKgLM+kvyivsCH+D5z1co+ZRrUPoa8B71mJmk+SToiPngbnz7ob8O6dI0pP8kzob14hIE+UOehO8i2MD2gN4Q+UJWrPcxTrDx91Z896KKDvgD1ST5mcyq+0UmtPgB2B7/AE487jhSjvh7pN77iAsM+86vzvlLvmL6G/5E+52TovbNzjj7MH7s+Tvv8PT1gIr859jW+yPMrPoaLLz3SVdq98yeJPsrmML4047s95tyDvSBOVD7oZcO8RS0YvjQor7717J2+xGSlvqhCRrwUNza/Lj3pPjjbtr1SA6i+qkY1vs5bJT4KcoC+xOzGu/GNHj68kIy+aTWrvqvEJL9QBt88kQMxv69X9L08b2i9"
+  },
+  {
+   "id": "zonos3-sakura",
+   "name": "Sakura",
+   "language": "English",
+   "style": "anime",
+   "gender": "female",
+   "upstream_id": "default_c5e098c322aae901",
+   "source": "gguf/voices/English/Sakura_en-anime_F_1.embedding.npy",
+   "embedding": "Hmi8PfD1lz6f4e++CfcPP6d4D79CuA0+ccpkvmaPNj/X6Ws+GpyfvgQN7D414iG+aM0Cv87hdT489Ma9gcKaPoYkIL6CT2Y+wf8Rvfgxlr3eJHE+7PWhPlyTC7/ZvxC/T4YBP424zD7Z5Ic+XEwCP4L3Xz2c6ji+T6aOPmrORT2EZ4K8SqgBPtKiH77PSRk+fOc9P3KzjD6T4Za/lMfyvdz6OT0C5wC+EFPpPoj2iT15iua+cHgmvnAYC76ZEhW+QuYAP0E9nb48oJk+QoGdP9AJHb9uI4o+lPjRvrSmAD8vUQU+BijJPpjPEj7yUiW92Lk9vP7lkT66O3i+kLHCPmxJDz0gcFW9N5UwPsKVt76T1s692JO1vvoZJr4VhRC/yJv9PXhwCLzlVgQ98fXnvieU+77gi6y+Hv7SPncrHz7PoZ8+nGeuvqG4FL+wLLq+uNSTvuYcED/Q/SM/gNHGPvZ5eD708dk8BHmSPqsS/D3uFeg+33mcPsS6Pb1OpPe+XmDrPsdeBT+P5bw9Iki2vsaEl75cvNA+5SCOvhfKEj8QVAQ/t20BPqyPJT2IEgG/gV6DPlGJhD5c8eO+IxgkP9K5Gz2IfO6+mQKkPhWAl76ehY+/79hNvujEyz6gEzo+xKmFvp1tJb7M4O6+BzUmvw5ZhD62KSE/7lMJPe/E773Illu9QH+TPBg/KT6yaXg9b/navgBv5T3vb8C+KzMXPhSz5zx8dQQ+kFBKvPpASz6hIkg+qhI7vjP7Cz8DJeW9Z3Z7voY0kT6MhMg9HKfBPcL5nz57R/e+Pn9Hvratzb2mo2w+uHIFPGqKDb5ddMw+5Ne4vsR+SL+dOoq+IJM8v4IIiL1+cKI+gDekvkGvuD7mrqm9hduTvtXvKb4Uycg84Qz0PoSSfz4SY4U+yM33PECkCDwk8+Q9TKSWPeas/75LIc4+bgHoPjFcfT2x8Hy+aKKxPtPB3j24F+C9driKvja+iD5Q42O9QEGwPj8vFz9GgSi//LDXPtLeL76lvK0+"
+  },
+  {
+   "id": "zonos3-savannah",
+   "name": "Savannah",
+   "language": "English",
+   "style": "American",
+   "gender": "female",
+   "upstream_id": "default_de4d191ca7574982",
+   "source": "gguf/voices/English/Savannah_en-American_F_1.embedding.npy",
+   "embedding": "oAj/PucIwT6vOr89RNSmvqaxmD6+ses+1oQZPpS5Ab/yUZ4+4k6lPvjGT72k3a4+fgMdPmgDWjy1zoi+9mljPvq4Yr6fWua8Bu/ePsrUBb941Zc8tNvwvrB9Oj4GYN8+6oWDPuXtnz4V+RC+KmIEvX6tK76bTOO98ECMO5xhnT5vwUs+9AbTPJ4VDL6FS8I+7IYdP8Vlnz6Ut/y9v8Mbvp6/qb4qiic+OKn4Podf5T4cTSa+X2ttvnlm5D78l7+8gkr4Pn4h0L3geVY+IF1UPuYvj74c2vg+TplPPQhNmjxLD5O+XgQFv8AytD5YCCs+0IOpvTrqqz5Txve90O8GvFCZMr92OsI+8KUMPXN2t76raOm+cPu4PLBrcrsozVu+bTeovozwbD6Pfa69riCjvuQml77Gf5a9+xnavm7QHb6aVlk+lqPXPvKfjL6quGK+jFuzvlq6Cr6sv509UEe4PhASjz0DPAE+w/axvg1ruz2YlIC93+t2PtSPKb9AWBq8QXLMvar81j7Jyw8+osDOPkVvOj5Ki3++3h2UPACSwDusMIW9mgaoPjJTJT862fC9hlgAP+Vr6D7i9Y49S1JqPhDBm7y4Dys/dPozPk6z4L6eHG0+s2eqvtSRZb7I5rQ85GDavXmL7b5o3FG+esqjPaxF0T72KAK+cqd8vp5ehLwQVJw7bv4GPx4HJz7TPDo+dHcHP076nz7EzEA9ybOGPhYgvT2JoF6+UwAcPw3qeD0YjKc+ZSORvTiejz62Kd88FbjhviuFaz+0hvA+0sB3PoDHBz/nk4K+Qq9dPpDJq75kDza9DLC9viqAuj46zYY+EmALv0ZLJD7IdV+9sEVMv5Zvvr6Ot9G8QpsTvp5g0T2KBhI/nTjKPvitVz0WW/Q9oQfePeYA9r03ujW+OlcMPu4Omj1svF29ZGQOvTT2U72Mqts8XNraPpRUgjzQRYe9rDKjvLxt8j56jBq+aLbuuz3Kmr5UKxK/sKUTvo/C+j1NQcq9rDskvtPc8r55fgo/"
+  },
+  {
+   "id": "zonos3-thaddeus",
+   "name": "Thaddeus",
+   "language": "English",
+   "style": "announcer",
+   "gender": "male",
+   "upstream_id": "default_3c00e421e684f949",
+   "source": "gguf/voices/English/Thaddeus_en-announcervoice_M_1.embedding.npy",
+   "embedding": "asyMPa54Ez/wLvA8cuPTvmdZEj7MBQS/c1vfvqwOl7yeVCw+HGWLvv38Rz7uRrO+exQKvhw3Or2nVH8+Yg4nP/Hrzz5UZcY+nNqqPc+ut776R8s87L0HvzhJir7IuhS+eVK9vYEarL0GUYc+jcjmPSAPTz4HAFU+gIOIPGxRnz2PvSC9pGkevw6FzD4W22m9JcjvPZjliD6OeoS+GIePvsVZ6T0k6P2+sK//vN/5Cr9oXNW+4V90PhJGLD7dGxa/Epe0vniAND9j+Dc+KIq9PjJspz4IAS0+Jl95Pm5XZj1C/Gw+1LuaPtqVLj9gp+e8rM3SvgY0L7783UO+oGQxvLiA177dpOI939nyPkJW2jwn8ao+YpWlvsZTQ77k6gi/Jgojv/DuZz4aomA+rMQKPTrLjj4iisk+wPb+Oh6Ksb2i31i+XDKVvZ5Ssb6R/QE+zHuIPuNPKT5/6MU+/x67PiZ4Er/ehXm9Ph8IPyagWz50QvE8wT+GPmk5yL7qd4Q+tpQVv0jo0zwirtk++EqIPbUOG79lzxi+orA8vwDVxLyAjw09hhFrvvgiar+WOog+FHWxPjhsLr85+CQ+EKxfvqHMR76mjKa+vEP4vCnW8L1snl2+RHRdvlwtSLyAU5M9DkTVPcoeq75UTfs+AMAyvjJW5r1ZPJ4+UjtkPnLmlb6oZru+8w8xPlG3Xj/FkqQ9g6CgvQa0K72UPyM+VJjyPugi8T2G8Ao+uv5Gv0+itD4uxd8+dBThPByWcb6k02K/mD1GPgCsjDj9ShE+1rMgPlekLL88XI29CDYdv28UIj5CVRk+BG3QPD7yBb94XzY//mDnvixdzj4eSC89tM6rvaBMRL1gi6w7NaKGPhjmlz6dgew9apDGPnboJL2AGsQ+TtSWPlo97z6wnuY9CoSpvpkt8D5hH6w+SFR3v3RJh75o/WU9XLcbvLEQqr4SXj4+SBb0veytaL4Tx6C9oleXPhTWob3+aRk+6O8kPoTaYL51/eU+4IE+v16PaD5kLuC+"
+  },
+  {
+   "id": "zonos3-willow",
+   "name": "Willow",
+   "language": "English",
+   "style": "ASMR",
+   "gender": "female",
+   "upstream_id": "default_940eaff39a929da0",
+   "source": "gguf/voices/English/Willow_en-asrm_F_1.embedding.npy",
+   "embedding": "s7qYPr7UUj15Xnq+kih6Poavpr6DyuE+7bSVPnwFfT6M75i+UwfavoC0Xz28ayG92kryvTgEHz5S1Sw+EKfnPc1qBL7lg5s+APE7vHZSYL6OH6g+DIZlPkh2PL4YAh48ekuXPXLPj77AqBS9y0uHv6FQfb5cgk2+EB0iP/BsVj2KVC2/meQevUCa2bwTlZE+Gwr3vpQH974qvo4+BXyJvrS3yj5IveM9xY3CPsmAUr4R6Hs+MNapPvLOBD5yj1+9lI3JPVQW6L203Rq9izabvhSNHT7yOnm97IloPTBdx7wnM6A+PKXWPoMCID5p09e9BMYGPgRSVj7qRiY/Wt4WP6YKvr7VPbW+OxIOvXuGiD4SJwE90F0fPdbWur5KoX6+ZAGNPkC+CDxk9IW+yN/0vePJ6L5kJS8/6nRJvkBkvT5AnQ0+Io3EPoBWBztQitm+sILAvs2CBj927co+2He1vRH3Hj6Heyo/WGYlPNLpqb5moQ4/Q/uHvokgMj52vdM9AOVHPyybgT3UD5M+bCC5vnhLlT4gcVW8oFzPPXbkHD/MVBE/xHZaPn8rED4Kcyi/emmFPjI6/D73kIs+LrBrPe96Bz/8Yog92W8FvtN6iz6EkB29kP/wvRsRNz+bCQs98FWlPoR2BT16Osu+vfc0PlgW/z7AW7a+xM7JvmoQiL4c+Pe9/Ns8Pxh4FT58aWm/80QcP5IwzL5UOCu/SCXWPhfo+74hCLM9VfE6PgZ/Ez7aC8g+KBHqPNJVJz+Pnp29YUfevaEvcT/+c6E+05awvoXPkD6o46e9Kj+lvb13rb1WJco9XL+IPmJDIr+SymQ+5H3zvDWwF78QxHa+UqYKP7wnBz8O9Y4+OgOOvp7qiT5iHcO9CGQTviZgvD6MPYk+xhAcvd3B5b5T0tA+kJ+0vREvmb5ycb++2CXwPVBhBDyY8DI+LA21vATdMr7kwpq+3yYHvopynz7XIdM+DD7FvZzBRT6QC5I9KkBBv3j/DD9DE6K++ETVPix41724DCS+"
+  },
+  {
+   "id": "zonos3-wyatt",
+   "name": "Wyatt",
+   "language": "English",
+   "style": "American",
+   "gender": "male",
+   "upstream_id": "default_34370fd91e3484ef",
+   "source": "gguf/voices/English/Wyatt_en-American_M_1.embedding.npy",
+   "embedding": "mnUJvuFR1D7qt6s8mHravqC3vTvf07m+6v7ZvQDYNbix43w+o6xyvmBKVr5WgX++3NvnviaoHT6UDTc+tPdRPkwOdD5hV5k+TKFDvuAM+j0BuFC+LCXDPfytmrzuI/K+3UU7PbgFED6+74U+1BiTPrCuxj5EXha8RZ7ovqjG5jyDvuQ9+COivQV2SD+Mnya+UE5bvHYe0T6AeIi62Li7vBxRirzlcwa/rsRlvcDBgTtwSrW+nJaoPgLyND7Q5Mi9JxirvsXlZT5aGDG+zedsPt/mtz7Uy+E+BPmivndsrz5IBTm+Op5YPkpOzz72FoW+aNiVveibzjzoqCA+CkysvtAL6LzIV1a+ijwyPrYpDD9GojI+7hrNvuCgTj6NaEC+oJ6IPkIruT4+K589xmYOv64+5b7Blue+ximmPsxuD79lisi+BUuaPeyX/L47+/6+YpK9vXAqvj0WeAY/QC6NPqimub6iZrY+F7uzviMsfT4wJGg+Hh7iPJjLxD1GMw8/TtzAvgtl/b2e57++PtDMPbCiPb0/rjm+0yuXvqm/iz6pB90+ytyBvrxUIr+L87O+dd49Pxx1pL0oCxM/gJb1vtyWvr0lwDK/ySjjvi65DL6eKh+/PH+cvb61jz1kO0I+jeDsPqIzgj548wS/10gPvwJ7Bz+LaBE+dFX7PPCcOr7me7o+dvGHvYITwj7ALeK64fRavh5Pgr/0Co69OTOHPh6lhL4WoqY+eMvQvq7GxD1r+pc+zE1BvW3eVD5VWde9FHQbP/fv+Ly+0Cu9W+KRPvfJ2z0Noco+dsEbvxGSBL+tjFy+oghSPexCrL3Uwdi9cuUJvjRYGb5I2z2+rRkbvniohb5BH9++ERpUPkpXIb4Elim+OrPkPkZUgj6sPEQ/nOgiv4aLpj7q6sw+fLPQvH7cCj8SPWW+qDb3vlJqTT0pmDW+Ay4evkNK/r7gAu07vIurPrbdpD72oTQ+cqGYvsjr/zz8zW69yERmPpqpuj526yw/diHVvjAgGr13nDI9"
+  },
+  {
+   "id": "zonos3-gaspard",
+   "name": "Gaspard",
+   "language": "French",
+   "style": "",
+   "gender": "male",
+   "upstream_id": "default_517319c805b927e9",
+   "source": "gguf/voices/French/Gaspard_fr_M_1.embedding.npy",
+   "embedding": "m0+HPWQHXD+qMg2+g7QQPmg0rD7Q1Wg+QJcVPE7xpb4Byja+xLynPULdDb5/SxQ+bFo+vXmGl70oUVe+LCsKPjc9lb56RII+lIpzvkLH8r4WQCo/Kqp0v+8nEj5oEna9UB/4PpQ+Gr7vRyI+/qEUvhujyz3wtTe9GGCRPrQYGD/9r9a+7LejvQDSkz73Amw/OCEBP6LZSr5YI3c+pKO6PTxKsb6WA50+i1YQPzrFUz5mw64+qFsivybACb8kbG497sDCPg1/Jb6/rr8+8Eq8vYdHU7047qS+ria2vgjOajypve8+AE5bPLhz3b5qFGa9dKK+Pu31GT7QUL++UUvSPvAfhr4WAGs+AJ0UP6Iv1r6TkBs+ABH0u0Mgwz0Qeo6+kSCIPvWBgj3cVpG+QvodPsNXfL72ipi+ssYQPghWSz67niW/kLcDP0smE78ifGI+DGWLPrB7GD8JJ0W/o6mlPeC7KL5iwVE92AMqvl76EL4+WLM9CrbJPk6Fer9Qe2e++uuEvRoMcL62/+E+k3GaviIalL63UoA+WP21vWHpYj7WfBm/1kthPuwq3L57YAg/Yp4dP9/SCL7ylkU/RyErPaRH7T5qUVq96GUPP3pIzz0KrSE+llkOvxLXZb8AuAu5GKVSPQUCpj46SNs+aGaBvqqowz7gndK7INYFOyzZ2D5EF8k+BXQpPu3pLr7AFRW/TO7zvvApdr07cIY+Cl56PiYJMz7rWdg9bEnNPaCIb72ivsA+yCMSvV6ILr+ofgC/qEibvt+Dtz7Irlo+kC5XPrENyL4adoK+WMVqvDDrer6gsVe83t0GP8rqWb7axy0+9g+0PsRvKb7e0q8+P3LhvmZMHL5cGR4/ZG4BvBalB736YTk+njeRPngmCb5YJyw9nvi8vmzeyjwgEgg/t3kuPY102T1edTM+gTTRPYArtbyIIyC+9J2zPrAddT6sMOU+3qnmviFek732aTC/hBBDvSyxtj7yJ1U+m7Rxvo7ioD6wIge/oj5Lv3oaOL7FtNe+"
+  },
+  {
+   "id": "zonos3-liesel",
+   "name": "Liesel",
+   "language": "German",
+   "style": "",
+   "gender": "female",
+   "upstream_id": "default_09d206a5b067ae71",
+   "source": "gguf/voices/German/Liesel_de_F_1.embedding.npy",
+   "embedding": "2p/fvkk6Hr9CgPO+pgiFvQAArb52geK9LjDIvvJIoj6OIRU/xP4hPshWxb2DdE4+4FCnPmdLbj24TxQ/Es1IvrC5zbx00ZA9XxK9vah0arwg0zq8ziE3PvxcHr+9DEW+wSuovTCqvj1WeQ6+8gL2Pdanzj7zNCU+VErkPKDnX71lCbU+HqZ4Pvl1fT5gkh6/mKiDPnw19L5czSU9hMf1PjPkWz6owqY+w/Hmvo7Ry736uFe9wNyBujq75T2kC4O+UN+hvhEfxD52plo/ZN1GvN7pR74Awg08LErfvTAU4D29R6y+m6LEPkIMt7053a+9YK0+vmx8CD7AINE+Zf9cvuJmCr8snfO9QUAFP34GQL4Pm5i+Q6snPTt+zb0/doc+YPWjPsBPhTvSrhy+JMYZvUT+fr2wqsG+gLbMuQ0l3L0bHcO+ikTevoi0ez0X9pu9Pkd6Po+enL13zLQ+FJNjvhxpD7yepy0+taVIvp5Dyr10NaS+SjjSvhKOwT4zSAI/oPiGvCx7zD7sXyk8p6CNvtlDp75o0Sw+Sdwrvo0mob3iKo2+pACLPkoADr/AbnQ8we2mPuDcqL0QcjK+KEFuvIddo73/8DI+9BbZPUwZ1b5oZ8u+8lGMPV5kMT0gLg8+rJ69vUJTGz4JfFG+dTynPeTXgj4GcrC+YIOnu+CwF7uQFDU+EtWQPiy0dD3lChm+yYCLPsMWm77YgBS/XrUPvvt2tL5shLC9JpkZvxo6vL7WWxc+4YsGv4D0vDwg70k+2X2YPmRGQj6OXJ89liktP+YTBL7uelo+NPTEvX2bEj1paqy+IyacvkYbH76w8V084/Kdvv/AtD6qCiI/oz7CPUeXVb7mMCw+ewPvPo7Yj767Obk9aFmnPU48fb7OBZy+SlkyvxKJJD5gnqI9mkSMPf6ekL0iYRu/RMoEP1XBQT17HBq+5AUxvgsMQz1Fd5e+qwBxvtbbED4WrOy+GCHNPj+7AD5Z93u93O+bPMpCNT6s8969SW/FvrRK2b7CGYK9"
+  },
+  {
+   "id": "zonos3-wolfgang",
+   "name": "Wolfgang",
+   "language": "German",
+   "style": "",
+   "gender": "male",
+   "upstream_id": "default_ec650ef042ed1f14",
+   "source": "gguf/voices/German/Wolfgang_de_M_1.embedding.npy",
+   "embedding": "XOjXPi0y0D7CLVG+kG4IPzmOA78Au+O6zqE/vXb/2j7uURe+BsaUPpvnoT4G0om+AGwRvBjB9D2wpTS+lsFHPgNjEb5fmsa+7HClvLoUor1AxQw/75AMv2rcmr7Eepm+2hVWvqATb72eQCE/wNCTPUpzUj8YmxE9vAFuPm6/vz668ms+5Gf/PjeaVj4yPdi+likOP7kpTj4t3zI/ZUj+PXdzIz68gUq9MK9IPNTiYD6w2NM9hSvOveLmgr7ajvO+J8ucvmjeRDwkchw+cJwdPRgDy704tYo+MdJhP8C+vL2IXTK+7LQUPZHn5b5IECk++owVv2i90b2JL+O9hsCqPmhpJ7yubCC/iHGkPYbAEr9+mJ6+qtoEvUByOzzQ7uC9zQpFvntCLz6luXi+xMoLvpi7jz4A5YQ+A/4/PoQUxD64k+Q9nTtSvYmGE79sSEG+Bjm5Pa5y8b0mTAg/6bkMPzx2jL5fkuo+EW0svQTfaT0C6C6+/2eYviAy/r46LYC+WJRdvrchXT59Pe4+BToMvm9YJL/a+IM9JNpnvqr0OL4U9hK+PvaTviem976+ZVE+RWgpPvegNr94m8u9OAQdv/Z9GD5GgU4/yFtsvlIXEj5ezL4+TkXHvjrEnjwhnNw+5C6jvsrO877qKUo+YnNfPs6uD74KqTC+3g3tPsK4WD0UZYq9vVXSPcJ6hT/E1749I6nNPQIvvT05AsO+cvsLPiQ27bwo2Ge87NCVPQNVrb0IUJG9OM+XuzJbtLylRSW/vJRVvQ4y6j2YdKW+xH4nP2oqxL7cQSa+sc2BvqhGmj7MT3i+pzkZvyS+i74MXHw/GJqCPkRNyL7wTbM+y6MMv5/nQb3v7QY/Kkuivh74YT6h6Yg+snblPgND/b5clle+IFNPPsRTKj/75Z0+tzOGvnQ/8T3gzBs/DkeTvkL00L6gSsQ+41shvtQWyL2ypIO8DODivu5BsT7c1YK8EruuPWhXxT3AX2a+SMNKPRYooT52MVE/ifD2vVSXvb4QUIE+"
+  },
+  {
+   "id": "zonos3-ananya",
+   "name": "Ananya",
+   "language": "Hindi",
+   "style": "",
+   "gender": "female",
+   "upstream_id": "default_f76cf78a50cf8496",
+   "source": "gguf/voices/Hindi/Ananya_hi_F_1.embedding.npy",
+   "embedding": "tfphPpC0L7y/dpy+CmRIveAoH7+GYxk+qH5nPXV8v757ylM+F3hZvrLcqT7IVMu7TqxivsnlJj5Fv8C9of0wvXlSeT6kvAg+vhpuPo5T1j6Xvyg+ZmTkvn7CoL4LAga/HPjtPGgEYD7tdQk9diTzPvcuLr4AqWq9TIxXPhAoGD48QwK+FGvZPemQrb4Umsm+EfXDPol80r0eeDg+dNiDvmri2b3j8Ls+zmIPPhYvwj0iCl2+4IgAvj7N+72ILgC/e5YCP8JBPb5Knig/2X93vjNGdT6IP4g90MujPiQZw70F6wM/X1Q+vkAY/TsgLKa9wi4Mv39mcL4Dx9A+gHsAO6qoET2IEO+9puEuPliNmL6OtqQ94GVmu9ml3j0iCxg+ADAXv4r6rj7IS2w9LuXkvmBybT7wTsm+4xHMvqtZe72stqS+OuoqPWAQvz7eUpK+hvkNvsJB7L38k/m9NHLmvYRZ0b5/vJC+FA5JPo3WvT7vJOc+eqrIvkw2rz1ksW49BAbwPrLc+T1ddrU+mH9BvVoRgb43sIy9WymXvkogJz5AXK+7kypJPrD64D5AedU+UHldvkwRDj74taC+4gd8viGOPT06NB2+/h3jvjhlrL4E32S9FVCnPmze5L7ugTe/p3P1vszfAj0wuZ8+FIemvuL6pz3AtZO9JQr4vpzQ+DwrtKs+O5gmP2oIez58258+P0gMv2VxxL7iiX89vhrcPt+2i77Aofw860bfvi+VEL5O73o9h7C0vtsGoD5Fi3w9blR4Pi0nnz4QIn4+s8GNPcipRT6TnJ2+mFq1O2w9uD7on6w8GOJjvtQ3qr6uEuI+Gvcnvh6nJL6Q44i7hxajvURxzT4lTmM+MLusPfSlSj6yORK+mBPcPsnhmD0MBna9HqtSvU2Taj50OXI+Ft65vjhdVL4xRBg+Kd2lPmS/Er/k81i+uHaQvgRY3z2rUHG+jAzkvejJo76QnRg+fPxePapU4z7Yyym+mYJ5vjQmMT0wP3c+YNM/vpPD574xY68+"
+  },
+  {
+   "id": "zonos3-arjun",
+   "name": "Arjun",
+   "language": "Hindi",
+   "style": "",
+   "gender": "male",
+   "upstream_id": "default_849a62ace1f85759",
+   "source": "gguf/voices/Hindi/Arjun_hi_M_1.embedding.npy",
+   "embedding": "qAUyPkKypz4OzLG+en6FvQ2YjL7yOK89Zl3uvWz2fj7apCG+YIQjO9qZ6b0D+EM9JE2qPa7MSr68kn29YghYPVC0fz04Fg8+mPpzPRJiWT2gw6U83O4zvswzxLyw+sK+CExYPioVhD75BcM9Z1a6vbeayD6Qks67kgBHvkBxzDszD+c+VIYNv2LV+ry3Mg2+MpiGPvFYob6k9zu8mHJUPuLz2T6isHE+32wzPsfYsb0grpm++K0Rvxj54766tbG+bk24PWUuEj4YDtE+zH00PgBzQjx+N5E+sSAGPhCgQTwe7K8+xjAXPlbnS76Ojbu+kP/UvpDQ9DzjJBM/SkrBvqTpEb6Q07++l9sWP56ms77smEs+IIN4vTeDBj7Ka6w9Lnj9vW1Z3b7cB2C++rLWPc0AvT4tmZA9Jbb/vuHdJb/dhS2+WrAhPh6lpL2zwb294gumvhJL9D1x3Ra+Sy+AvjdhH78X9Y2+EHQBvjYbvT5EdVg+yEFSPRBEdz78UNq9nkXQPikoRT7IBns+kRviPVeDWb7VAOu9HlJlPhXylr7i6NS+6NS8PhN6aT6IaS++tgaavmIpbT5WBgc+fqlZPm1uy76KRYI+C3WovsBdG7+OBAu9fCitvTruAL+212W/zAsHvsZZTD6WPaK8Ph7pPryOs7szSTw+mFitvHjnjT1+lii+BEsYP3zFxr4gDt++AGCcOCqpBD6jrJO+ykSlPmp4sL44fUg/nvSZvhiPBz5C5pY+VI9GPvStqj4snzI9o3fMPeTOAD9U0Mc+rZa3vixaQT7+7ss94IiyvI6FWD77N1K+Pn0ivnYZNb40jzC9ComivvLNd76urys/4F2GPdzpHr746Yk9JD+rPqbVML70qmW8Ei4mPfx6JT6lmeU+lpaBPhAGjrwgM9e8PO7VPuo/j7yCtG+9alW4vm4iTb9qwGq+uEEEPvV4gD6m+rs9ud1ZvldTZ76eQ4E9wEOSPhTgIT9Yjam+JkgzPaYnmz4GiCW+bGsYPZalOL4e7xY/"
+  },
+  {
+   "id": "zonos3-ginevra",
+   "name": "Ginevra",
+   "language": "Italian",
+   "style": "",
+   "gender": "female",
+   "upstream_id": "default_792987ff6236e50d",
+   "source": "gguf/voices/Italian/Ginevra_it_F_1.embedding.npy",
+   "embedding": "kgCBPbtmLT5VcB6/FJEBv1imOr1oBZS/xv2AvgYqc76Rkqo+sCo0u6rszj5VgLq+gNwXungKGz2w8La+HkX8PVadiz0tnow+PKEUPZJ39T75Lok+xHplPiYtC7+D/W6++x6CPmH1oz1gGNC8nGa+vn1asb56kx0+dugYv4x5kr1c0W8+ZrFIvRnJIj9gHqo8lVJJvqicnL00BIc8U5wxPsXbmr3mUhc/PnLUvkwOKD6VI8C+tuvVvl0IBT8g0W2+K757PkxP2T6EA0s/5hIkP5ASHb6Mhw6/utDjvhjceT+6IRm+fk/ePvo21r6wL4e+roUAvrgddTwQyfK8Cl1CvaTeXz3D7p8+jcKFPiOlDb08Nzs+OM74PaZsib5MQxC97CetvXrT0D5St9K+VmDfPjExjr0H8cy+QiWrPs5Vub2RA4S+uEobvum8Ab8CmMi+oMiJvkDICz66yU49dEpPv/tI074m07A+AunuPk7eur5+d6c9jC7HPc1eZz6oFoY8uGtvvrdvqz5PCqo9c4BdvpaiFr0aD4E9dBcMPpER9r12p/k+nrQyPxxOlL56Apo+Jm2aPth9ij4kiMC+hrwOP7p6gr5wx/O+Gpz9PgzwCr6irL69MNAnvYzuhD7jrk0+RQEDvxhcEz8Oq7a9HOtxvn6PjL62W/e92mllvupoUz52No++PG7QPZiIAr3enhw+duNkPsLYHr4w6re9h8UBPqAokT6VfSQ/xfyavAp+Br7Z+D4/XOPDPXb9u75w6SS+mDcdPtIcUD9+Nsi+8qmQvR6RzD3Cyo2+/BX5vgzGEzxc3pQ+N+2nPm+GIj7jQbo+CeHoPhWDjT2+jy09FpBRvsMvOr/YpkM+VuMtvuTrOT2iOTw++cVdPnrUkL5CWCA+4s1RPUgxD7+j1ae+oeTVPqTMQb4+SdS+K5SvPSskk743jF8+qHxSvpy9Cz5cnLG+hlcxPsaIfb7wYJa+Na0dPtyYmT70mWu+AAuoPZQ4Dz+Znz0+6ODjvYSKiL7XZau9"
+  },
+  {
+   "id": "zonos3-lorenzo",
+   "name": "Lorenzo",
+   "language": "Italian",
+   "style": "",
+   "gender": "male",
+   "upstream_id": "default_ccb71e6596453e72",
+   "source": "gguf/voices/Italian/Lorenzo_it_M_1.embedding.npy",
+   "embedding": "mkB0PizEgj4iyts9UKUIv+jxnL5aFGm+0/OwvrqUKL/geyA8I4djvnwkvb37gES+mGZnPjvsqb5p8Gu+j8ChvddCYj/qqdq9RqMKPhQ/JT03p3W+aEimvrvIzL4B7nm+aIeJPA2lgz4XcN8+3DKNvYjakz7/mF8+roIfPlTpj76Zuo0+UKuDvg/96r5gozE+Zj9VPmvjoD7q7Vm9IXkmvuNQhT48Ww++0DiYPSYyj75Q0Z6+uEppP0yV8D5W6C2/0xyNPl+7wj6k8v0+ujeAPhT84T64hJM8JXdjvr4HFD8yLd8+8Baku2kHhD+wg3E8b544v/zyAb6sois/MC7wu4DLaz5au4c+yWmavOKkxL6ErIW9JaV3vgAw+76zLU0+aLgavgKoWb6C2D0+HYjbvVZ/7b0W77O+THLGPnDXGT1q/Tq/MG8WvwyPlL6ugGE+8QonvRAhFDzEgj++qOfkvnJti71qmn6+c4qZPuZ4Aj6WD/I9oPUwPbDQlL58g4w+mmmvvlqfdb4anVU+Aivbvlb+mz5EGEK/VqaUvj7TLz7gaXE9nH6SPXyMt70qmqU+yFSVPGCQGD0jXVa+qBCAPr5JvL3PvaQ+ZjKjPswzAD4nl12+pJDxvp/xHD5YBi+/9CUlvj3YOr6Jyg6+qQpiPtwMVT3kbSu+1gxHvs8KuL5JcoY+sFyjPOkqDz83iHY+JvIEvtSfRb5xSDA+xgkMPnZ6OD5eJwC/4NUovXjftbzwvSw8MZu/vuSNoD1ewYo+yjpiPi9Hrj3W+mC+FqWnPsJ9Oz5Ci6e+Ngmfvspk+T6rqeu+KHEfP0vw8r1aHxU/0D/TvvST0D0IEmc+jpZPvigMpr4tbhQ+aKXSPhATCz9gHyg/cs3fPgMOvr0URqk9qDyfvfpKn756bVi/LUOjvrcSGb6FH36+Mmd7vrLhw7zxyRs+45XWvuLQub7voxY+FB6lvlNyKD4oTX4+zJQkPxiGobxNhIU+cLXgPvurqD2+ors+CVFDPpS3sr6Wiu4+"
+  },
+  {
+   "id": "zonos3-minjun",
+   "name": "Minjun",
+   "language": "Korean",
+   "style": "",
+   "gender": "male",
+   "upstream_id": "default_aa6e36b246dc01f9",
+   "source": "gguf/voices/Korean/Minjun_ko_M_1.embedding.npy",
+   "embedding": "LCFVPr2y1j6Efh2+J0hMvv4Uqb6TvX0+Gq9tPnCfEj26UaS+nI7nPTa7uL6IQKo+vYzzPvj8MT672wO+toiPPpAklT7+ZqM9yIoUvkgtwj3KVhc/LY2CPuCAPD5I7MA8zfBJPm4FND+Serk+fBdRvt5oxT6yO9C9EjK/PUSKnD5AgQK/wcspvS/7IT4A80q9+a/XPnzHjT2/aQY+xbf6vcyEGb7ql5U+v7eoPfuImz5gwh0+xNR6PpstLT4EWsu+i+u8PpogqT2GwYY+kvClPmV88D3YU6Q+Qei7Pj6w8j7O++c9smA+PQ8BNr4TtGK+v2+cvvg9ybzCEro+bMsWvuKYAb8w9+Q7xvQ7vUA2O7z5AG4+IhnmPTZAmTzKh4A91AmSPbpUhL6ASp68C2V0vpymZT3hDtO+aLZLPiAvabsAINQ9AMzAPR63vT0QMc+8uv2SPix5vz45b4w+jmAevaxwrD7Gkse+STDLvkDwELzH/ZY9kx4VPkUki73uMoW+4xjhPqJ+vT741wS8JNfXPoWSXT74Hdm8ycVgvvDC6r3MokS9tfwNPhbAkz44uh0+HngJvvy/Qz0A+Wi9/NnPPnxdBL+KpIQ+A9rZPSxICT53hzQ+mLWzPAKIDT6T846+WEYHvynHqT1N6he+xipyvhPiIz0xOlw/F5PEvl/rGD5DJYq+KEz0Pi1gRT5jg8M+fUwoPzaeID8sxqu+8qMGvnhOhD4a+mo9BaSlvfTgm72ciSu+pr+/viKQUD5M96U+TH4vPaPLdr3gLvy9aDBJvbZhJT2MYYw8tC4svoruUz5KIoA+K7KYvc7Jt72Vao89R7uSvugkEz26Enc+FQ0Cv5rwHD1bCli+dmDQPigEkT2PsNW+NqHIPgxBfz4EcxA+4xj0vXiZ0T4iEMG9vPgAvvxtUD2rWXK+JY6jPvIUnb43nJy+YLlFPnqiNb4phMS+AzCUPiUNzT3hohq+s4UavbqPozyqBVW+bSCRPkdvC78YsAc+37mUvj8a4L6WYam9"
+  },
+  {
+   "id": "zonos3-seoyeon",
+   "name": "Seoyeon",
+   "language": "Korean",
+   "style": "",
+   "gender": "female",
+   "upstream_id": "default_b7a257a5b1478493",
+   "source": "gguf/voices/Korean/Seoyeon_ko_F_1.embedding.npy",
+   "embedding": "j9OzPiR5uT0NQJ6+zOtsvvR60b4QBRk/pvSAPsTdP76qfg+9VinUvtXlBL4Op1A+tWLAPv6xlj5ASvu8XGiKvpzqkL5iDjc+QlWiPSgeU71OGEs+LKxhPSDSqD5eOKi+0JocvNQOtD78Bdq9qi8IvhU4rL2c9789ef0lPtmjFj7nVle+xgI2vsrUJb2V81W+LfCYPtr0mj5MFWS96eW6vRiA3j778oS+hHGLvnL1073NcmM+/7+sPpJwAj5mKhK/bH4NPkgirLwyE1m+lOC9PA8Mzb0YFcM9og/TPUDR7b2D5/c9G6/nPs9rCb7kJXi+sBQmPV6lkD5uuRg/cGNUPva/sb6Tufo9eC03PqtI1L5Lk66+PWNHvim6Yb1MJxo9Q9K2vtb/pL0cZPq8IF4nv/D02D0S3Rs+Yf+6PkKkDz4Nzmo+w8SEPfL6rD2acoe+wNm2Pc5xCj4JBoy+8VZCPkSPEj1bans+YDAwO5NXBj7EX4G+Rn18PsJDor4hPXc+qNqVPcmFgL2bT2S+5SYdPVP8gL4P63o+kD59vYoeRj4vEXS+SBPCvFLjRj7Gzlg+AnC2PfgdoT6l/sI+0C/Qvt7Swb57pVa+gDGdO6t9FL5MWIy+lRjTvZiG6r5ihoS+9I3vvv7MHb9A71m8Rc8EPiaE0zzCK5w+gMcCvqYVWj5WtKM9gjCfPi6Ym75aVE4+grdAP/rp1L5I7qW9vknwPuT2tr4vfMY+ZJAJvba7OL6STy094Ln2PXXclL03+zM+LiZQPsl6vT7e09y98V65vkgw3TtUJ7G+l6STPvNCO72dB5s+iYdZPrL5Pr5ixDE/K5vovdhV1DwmS/Q+buBevzIasz4BCEa9UrHZPu52GD/kpOq9jBmGvfc0j705wPw+fNK5vtLbt7zidpQ9CKQavlp+jr5qxZO+5N5yvACEHb9ydLY+Al4FvcDClryhUl2++lYrvqw9Z72yOJm9TvXjPTq4ET5sjtK9QoWxPoBhBT52YgM/CYc0v8v/M76T1cE9"
+  },
+  {
+   "id": "zonos3-haoran",
+   "name": "Haoran",
+   "language": "Mandarin Chinese",
+   "style": "energetic",
+   "gender": "male",
+   "upstream_id": "default_d8a9b688b64e638d",
+   "source": "gguf/voices/Mandarin Chinese/Haoran_zh-energetic_M_1.embedding.npy",
+   "embedding": "hiFMvj6GQz5WiXg9JvhOvlKSQD5jZ6q+76Q4PjjXuj11jwC+QpZtvn8dtb5+S5M+uJQ1PiBRX76Oy4W+hNIJPxbsRz7oFI8+0u+WPhanBj7FXJI+pFAoPWToyT2+XCi+0FdvPiLaGj1VK8g+NJGUvizcYz4+lvW9s2WTvj/OQD5gMv49EnZ1vfN0/71oxmW9RHU4PcR40j7kpuS+DJ1svpZ2QT75TI8+Do8xPtZJp7743Oy+8frdPsTNPr0ccWc9dXLZPmih0r7S4ME+pHfDPtxBXz2Pg789KjoSPZZsuD3wq749xJmiPKv7Cz2wGq4+NFGLvgY0QD3z+c690voGvoQb6r4xzg2/JXpXvuohtr6Wt6Q9ESLlvdTYKr6J3jw/MP0bvtrpk77+4eO9PjQFv1ThLj7KJty+9CoZvt9LkT6W8dG9mn5BPvGbxb7C1069ZmkwPjR/Kj0G6Tu+gfsOP6674D3JO1o/Uxbjvswc8b4pLiK+HCcuvh4FNb7Jaem+oxJbPzQeiT0lqz296Cq6u/gIq7z0h6G9qjREv1Kbl77fyOI9NLfpvHP6KD2jLcQ9pYgbPZZa7D6VXOU+48JyPuMCQr61AZ49ZpIzPmBa2j5QHRA+7B6zPlaAbT4QXOW8HOXpvvkpyz54z848mE9dvFCZMD20Mwu9kk64vqaVrb2enz29b3xIP2utZz6SqZk+yUXlPubO9z65/ca+IWDdPkTbDL+Sr3w+8UmNvaBt3DyTWkA9sl/cvsYaYj6/NZ++dOByPY+Q0z0sWAM+YOWYPiK+ab4AmSa8VBs2PvacmT5pUZ28uEyIvkyhmz3MBMc+4s8dviKTlr6x75E927oRPqruXT5e51G+KsUTPnCMjL7b5aY9S9WXPs5CHz6VVG0+aNN0vS+KhD47zI+98MqZvFrDMz3W0IS90FR1uwQsrbyRbK2+3HZsPk8eYL1xziu/m8JHPu+d8L4+MOY89li6vXojkb3+QsW+toTePgRDw76wBIu7khvrPQAfFz1IJ8g+"
+  },
+  {
+   "id": "zonos3-meilin",
+   "name": "Meilin",
+   "language": "Mandarin Chinese",
+   "style": "energetic",
+   "gender": "female",
+   "upstream_id": "default_eaee7325255d4783",
+   "source": "gguf/voices/Mandarin Chinese/Meilin_zh-energetic_F_1.embedding.npy",
+   "embedding": "yoiYPihHkD4upMe+uN3LPnoPCr4AgSs81sxrPUClu77MOoa+Vl+2PrKx8L7ZOcK+/IMOP9jIkL5g22+8qO6DPgRYJb1ddJA+hiEAP/R9Pb5w/vY9+Nc4PGmn3jy/exa/bnQmP+j4vj780+o+loTmPU46PD/Gs9I95imEPQC+vbuUaaA8/YMzPo2Rvz7EKpS+epamvtgXCz4pVCc9wlqjPZBO8TzdFdG+Nsu/vTIeJj0Z6Uq+2owZPuL/C76y3By+/nHiPjCr774w2Mc7NKs4P2QKgb72KrQ+OErEvEqVjLxoKGU+FD/KPk/Wjb78WnM9kDiWPY5PZj5Godw9HOEIPwLRjL4/R2m+BtiGvr1iLb4eHCG/lUcKv2aBlrzVlhY/r/OIvQwJHT5ND90+YH4uvpSGEz+Qe42+gg1zPuo/or1lWUQ+0awpvhIWBz5s4529FlfUvRmzy732xEq+l8shvWs5Ub7x9xU/ctFlP8hsUL7+d6S+MC0EPggSHb+0S++8oKEXvv1bVD6ElvI8aCavPVjF576OFPq9iVk4v1rOqL6wZa4+o5WSvt5tiT6IKFS9a+p3vjAo1j4R+Hk+BBEuPsMcTL8qwBQ9lwG7Ph7cfj7KAp69BFGqPmbOHz4qJPm9ceb/vu5moj1DSSS+3EoHvmg1kbw//s098Typvv/SlD4gtzm+jNumPuotnL7S2cE+cMypvD/JTb0iRpo9NPeBPiKBOr7vJf8+SGcYvmxccb2zt909J0TjvjijHT/Uya69cjlRPsgUTj6RW4c9++mLPp71kr1ZUAK/nEBaPhDZKT5M2Ok9/t9pPeAKhLs0nh0/bJgvPvhfBL4qjL29zkChvkSdrj08l3I+JJNDvoPEAD/APtw+cyeWvsAQEzonW9I9LS1LvgBH67wSMw6/KswrvlIx4D4Y3jI92iWnPfhsnr4qybC+7k8WPX9yNL614Si/lvs2vQaLi764U5U8OLjtvJTnxD5uD5K+5P5sPgtBTz68oWE99EkCPgDL8r40xuU+"
+  },
+  {
+   "id": "zonos3-leonor",
+   "name": "Leonor",
+   "language": "Portuguese",
+   "style": "",
+   "gender": "female",
+   "upstream_id": "default_e11f53895cad62fa",
+   "source": "gguf/voices/Portuguese/Leonor_pt_F_1.embedding.npy",
+   "embedding": "N6loPvKpLz5sUg+/EGiTPkvOOL76gEw/mIAQP6KasT2bYha+rtOrviYG+T5YbRM/JdYuPjcVOT4gxbK+3E81PYC8/ru9MAc+ExEOPlr7e75C9oi944hKv9i/Kr1cRRQ+kIgjP8Addb5gKC290CK6PmR0Iz+alji+BfraPjRkJz6I1ag+9mCHvpHpsj1tuNs+eFl7PrQUBL+6FVC+siAbPmpcpj5MdC+98s2mPCEYpL72lNe+69JXvi/aoT6FX9W+Ba/YPu24kL7FjN4+JuSrPlgSMj9gMT69x/QjPnzQnz4Ek6C9Gq6APvgECD6nIgO/tQrfvoydGz0mXKm+DlmbvpB/lL6GtsU+avK8PebN6z26oS2+Ivl4vhF97r3kd2E+8KdvPS49/b0uPDW+OGYNvwxQyb3MYZ0+iOycvPhKXT1yA2Q+bEgRPb5knL4Efxa/PRPuPokJfr7OFtS+USOFvvLwpj6+lw8+MnTYPk/uiT6oopW9ajO8vbjrGr8qX8e8PXgxP4c5mj7Ct2u+m6XiPSmBNb++SFs9rjiEPe+PoT6j2pG+A7fvPo7gxT34WDc9BQWXPq4aVj1N5p8+70JNPhLBb79MVtm+Vbd6PjeoND6aWMO+2KOGPI6j075I0wa/xqGMPYJEUj6PWy8+A4PgPiR8hD5J7qa+oJU7PkERTz7bAp29F/gnP6gp+LyUqxW/UCuHPS4cSr6Yjpu+65uNPkA50bzZpR0/YO6pPdCOt75JjwQ9ILjePYDiYjqk3Iy9TF0TPqFp8D2KiY0+FYZxPsCp5r62xg2+W5m0PWhqOr8XKw0/lUFOPuABX73MqpY++8HivqMrcj2/gqU+pgEqPVQJCr2A3uS5CxgAP1W02T4xG5296LNZveDdUb2Wi98+Rq3PPXhb+r7MC8m9qHRCPvA5yT00kNC+ssgVvtZlsj4/DXQ+ktpHPlQ0ij3mQvs9qA9VPgMeOr24BtQ98KzAvAg0NT8lLmK/ctKwvRyouD6Bzek+yMH2vpfbEj70lZ28"
+  },
+  {
+   "id": "zonos3-thiago",
+   "name": "Thiago",
+   "language": "Portuguese",
+   "style": "",
+   "gender": "male",
+   "upstream_id": "default_4562e98e005b69cc",
+   "source": "gguf/voices/Portuguese/Thiago_pt_M_1.embedding.npy",
+   "embedding": "2G2HvV5W3j2lwp2+3Jw3Pd7uC7/uX8W8quvgvTc+pD0ulXK+zpQPvyP+rL0oZyw9pYCxvVIlxz6N9jq/A9ZYPuzDJD5qKYs9A0KKPnJ1DT+TCww/qmK5PciPvz2bMjC+Zh7CvX4az7xVTKc+ovAQPmkppT5MFeo+bOyyPC5zer7Gyze+pEzrvJIs+L2MYkI9oi73Pn69ib1g7Vc71sYwvuyg3bu02+U9XEuzPcZGn76npOO+rnZ7PrmO1j7g4JS90uYJvtxsCL+66gc/5+cEPq84Vz+1VYU+HuClvevzmj50C4E+NIQrvT5K9j5wGVO+PCcfv1TsBb+YPla97KErvdy7tj1unAI/vrcTPzz0Tj5uPSY+LJgHvvAA+Dt/7+U+iY1DvuS2nb5gRdM9kloBv6JwDD3+T189PHjKvjwkJ74OpYC++E7XvGSl077BZOu+AL9kOfZWH74s1uG9Ps2gvnZUgb30jY4+NnXHPiksPj5Tu8I++lBivuIymb6G+8M+RtNXPcSmyz3Rc8a+OgA2PyBx6juub1u+C3M2v4mUEb6IwRC934HNPlnMh749obE+ui0fvhFv3T5OhDM+bdoGP8CqBj3YW2y+XIgVPtIWH77W3Fg9u9hLPvpUg77Rvdy+rgcPv6ocP77vQLG9Hi7uvpTRFz9KhKI9DPKAvTdDuj07N04+si80P/AkEL5ibX89XTG8vWAXRby0Hty9UDAQPGUJAD/oYR8/anUEvy/1+L29RTk+JawZPfKvxb0S7K6+8lslPkNfMT9Y1ue8hg4HP9YTV70SM7U+ItqevaX3Qr7Pnak9KAEnPlUJ3r7M+YO+EFpMPDYNU762r4Q+nKyuvJTQar3GPho+wm08vZQMDb9i4vu99HPvPTaknj7VJrs9WQdYvemDsb7ZfT2+hEh5vYlKvL0M050+fpSWPYeBAT5Ebj4+AvgKPsglAz6gz7Q71mM7PrH9qr4IwfO9XoqZu79EpT1tR5O+aCHuvIiNDDx+1CI+RiMhv9D3Gr9g93S8"
+  },
+  {
+   "id": "zonos3-rodrigo",
+   "name": "Rodrigo",
+   "language": "Spanish",
+   "style": "",
+   "gender": "male",
+   "upstream_id": "default_87250baa043e5bba",
+   "source": "gguf/voices/Spanish/Rodrigo_es_M_1.embedding.npy",
+   "embedding": "AE0xuuehYD6QZ24+qOkkv8QUh77C7Eg+whBVvAtmtz5jfBG+bDawvcfUxT6o2FC+s+33PTp9BT7FihS/itk5vbJ4Lz7KqG0+WPsPvKGhgD24hgE/oxZPvja9kT4EFoy+4eiRvm43tT5v4YA+NQ0Jv0iHGT9AbRW+UE6avOmkPj6KRSM+Qp8EPmN4Tj4QARW+crLIvpL3Bj+EJVM+vEyOPvZqmT5iuh09ORzgvvYDaDzToRW/iFaHO4KR8D3HjjK+VvggPmazCz8CvfQ+G3TlPrJN+T0WqF89lDpxPlgRYD/bYQI/pjgCP5Hosb6WN02/JFByv0Nl4r3ryaC+bi84P9VGiT1SAI4+TGgZPs5l4r6LZ4O9wMX8vfAOTb2fyFC97t8QvwCUCT/oTQE/JIaWvojfQTwWgUu+iTacvnSqvL1g/yu+O50yvfwSzL7icI4+DHYUP4j8hT6aTri9zJJQPuo3EL+Ik40+knuHPtf2lj6QbQM+nacdPs5hzTyQTrC+xQGMvdLsnz7cDv28/8EfvrLfoL7MDAe+ltCRPQUAvD5/evo96uNbPQOBCj5G3oE+tuUiPi8JFD5urF6+MDx8PJ/yDr+0So09nlaQPiCB2T1Dcr49zJiTvoHEyr2mNqG+LuSlvqBVBLsm3TS9wPnOvCjuWTyGNaE9M2iQvlJlQ754ham+HH3ePpw8nb4r7+Q+UAIxvkKiHj4k2TS9rnOFvnxLIT6e2vS96mHaPeH1Xr73+si9WufnvgzOgr4rFPi9eeoZvoBparzuFPa+mLMLP/5KRL7J0Qe/csmUvUGTKr5tU7G++SJ8vp3uGL6Ohlk+OmxWvaOT3j7O+8c+SEYPvIlFhj7sbVe+v8ISvj/7Bz9wKGE8HhE9Po3B6z6M/TY+isXvPgTLN75fF52+iHUzPo3KN77ZrOM99M4sv+H/oL413RC+pizmPhBYDD8Ynyy+ZDVMPXcozj4Kkoy+L2mCvRQdyT7+WKG9nFQJPlamvr1Urgc+Bx9LvlEOpr7AB4e+"
+  },
+  {
+   "id": "zonos3-ximena",
+   "name": "Ximena",
+   "language": "Spanish",
+   "style": "",
+   "gender": "female",
+   "upstream_id": "default_43e790fc116fd62a",
+   "source": "gguf/voices/Spanish/Ximena_es_F_1.embedding.npy",
+   "embedding": "Uj6nPs42DD6seQc/jPsFPdJcKL3IOUW+VBzIvqj6Pb4G6iK/Z9DdvhPAMT7ST+m+rAoqPOi8gj4MgHG93gxAvlCw4b0Sn9U+5LGOPrGqWT6F1IG9oDSvvrSCcj56E1g+nRhRvtLjMT9HtdU+wQx7vl1T8z6YWHA9zKsHv9jd9T3B2Za+g2MPvnxEoD2YvgW9TDOtvRZDMT8MwIU+WOxcvtAAAT+kEIm+gySJvQj4ybwF86W+sKTfPWwtGT/6KFO+/PapPtiyDL3Db8M+GnGKvMI92T4U0aa+WQDavhTqbD5Ovuw9Pfg9Pos6HT6jAwK/kVW0vvN/r76ukeO+2dB2Psqunj54gJq9kmkGPowujb0UTMe8cGBNPpI6Mr0ac829eOt9vsC24z7PSM89Nr0oPVPi6j4qSKU+TLFFvbGTJD44TqW+fiycvFdpwb5AiDc+JejVPUxKBb4wRoI+ROUdP6pjxD39+Hm+Bpmuvbh+mj622aQ99rvUvXQG0DzltES9AY36va8S4D0c/+c+cnmuvoS1dz1CC2q+koKKPofbWj40Cha+lvRaviyr2j74dbU9JsIlPh4VWT7w6l48smElPRlwgr7GugC+vlElPjklur2eX6u+4jxyPjgin70Vqyy+BnWbPqoKpz4yeZC+3/uJPXQ6qL4GDeO+R10dvylmzr2BhK++B8uivTxfxr3mVY89GN59PgSHLT6vepA+8GvYvp50h76MN+k9E/CfvgeFVb601HC+TNZTvk7Jhb7qfzY+qgthPubfGz6Wc5S9RnrrvqMdor5pJi++VGFJvuz4Tr6ZaHQ+CT2Jvimytj6naGW9rBusvryP9LwYWxQ/UjUIv26+P77zXsa+k9TaPcJJez5pTOA+asUnPlpjnD0A+Im7y9GCPjay373R91C++lgWP0L1M79jYa++PKmhPUsCc77M7Fm+X4bcPsTVQT+HkdG9Kz5ZvmXGvrxGtmO+OAm2vlRF5L6YxR49ErG0vRqzMD3bcp4+XFDQvsSigL4GYQy/"
+  },
+  {
+   "id": "zonos3-chaitanya",
+   "name": "Chaitanya",
+   "language": "Telugu",
+   "style": "",
+   "gender": "male",
+   "upstream_id": "default_26fb443b7759bce0",
+   "source": "gguf/voices/Telugu/Chaitanya_te_M_1.embedding.npy",
+   "embedding": "XKLkPTrDCz+sTmU9nUlvPtrnLL+oHIs9UWaxvbiC4L4urOE9vYmIvjpwkr3QUvm8iKIwPMizI767ibS+DZiFPrBT5T6ho7891tw2vqboej6wY7k+rtTIvmdeRj4ucjG+YDF2Pg5wqD1++oY+fFvyvFQpyT13O6s+2LCnvabhlL4MTec+DLXlPYke6D7hUuk+Ga2iPk7CIr6hRgc9up64Pa83t71AW5w7ftz+vcM3QL6vKpy+o9WRvmqopr3ifAK/VUUAPwZvoD7GQXA+DoMWPryner46UMa9upz2vViMvj4StVc+ZFarPgDOWrp835O+SKDAvpqS2b6OJTS+FyeQvkrHlb7DgZw+kNLwPo5Cc77+sMM9Wg2VvevtaT0f87A+T5mPvq4kGb7h4Zu+60XEvsoCZz5ldfq9HsZovk60gL63e9M9CFziPQYD5b6znPS8VogOv0GSOT5l19k90zrFvgbG3r7JBcG+2nX7vQ/mdD4T2wK9ja4ovr5s1D4+8/C9IL3nPe7ZoT6waZI+EtgiP06Ear7FLFa+gbhiPhCLb71cHdQ92vcnP64TCz8ANLo5qkYcvhZ2RD8o4oo+VDPYPOzTWb68bdi+wiuZvsCx/b605yy+BBKqPji7hr6Xqwu/BnmOviipEz0ZTl2+tORCPQH6aD6qtpI+DpTbPfh0AD4A/dq9yc9bP9tJ3rwO6CM+CpobPYhUBT4Q8x0+et+wPq41T76OMKs+Dfivvj7zUD5O4zk94AaFPsQo8D6GOSk+cpSjPYWj/D5w1S49kq5FPRkvVj7kMli+AGR3OzXpKz50sXg+ZlZcvkekTb7KmW4+Bz2lvi1qYr4pki0+yTzSPvVHAT/AAyi+mI3oPjCqDb4I+ha/8WXdPurC2D2Q1hU/UJcCPnGHpb0QjpO8nM+YPMguHzy44Km9R8h3vZ4iUb9ioIa+OmA7PioDFD98zFq9eLQYvpav972SPR0+otDFvci0wj4E6AG/fvNDPQx+rL3vi+o8vpl4voVs5r5LLHE+"
+  },
+  {
+   "id": "zonos3-sravya",
+   "name": "Sravya",
+   "language": "Telugu",
+   "style": "",
+   "gender": "female",
+   "upstream_id": "default_c3bb44b62cf13a5c",
+   "source": "gguf/voices/Telugu/Sravya_te_F_1.embedding.npy",
+   "embedding": "FHmqPohc9j78yZa+gFaoPITVOr9ikrA+ag63PQMPp76kpSo/Lp2kvl1ZDz+gFpw9/re6PpZkDL5A1AC/XIwsvlCAkjwPi6U+SDZFPd6/KD6xaDu+p8hDPQQvmD6W/RK/HEWGPgRcNT2S/Si9n9uaPdLkEr5VV5o+angTPkz8/L3CcSm+dIjfO6YWHT5ZIRE+4CnkPoaU8z5O+O89k75kPsbUCb7Q+o08rVgUPvxfNj60314+oLcJv2RJar0Y0Cg9vOmMPm8UmD6H5SU/PoVDPu/ZDL4c1fC8qikXvXi0bLtRUZU9rPtpPATDiz3gpBk8frLLvvCghz4m4Jc+0oz9vaBT1b0Q/yG7MlXJPmaiE75UuSS9HU4evfyA5T0tIhc+lwhDvt4DoT0KDs6+TlFZvokpQz4TjSS+bH3vPBW4yr7UQJw9ai3GvnTHoj0gxj08eAeBPARkND6NPd2+rhepvlw3NL16nqq+vYV7PuqLbz4GjpA+SKnDPZYUYT64k3Y9is5OPhYPhz7oZca7vCK3Pn8Sgr5oOK6+MDANPwEMPD3YD4Q8D00+PvZ7sT6Hwxc//Ev+PZw3Yz9ldsU+rkVjvTT0v7285PW+ZO4GPdQ9AL8gMwK9yJH0PjZKUr+Iuta+SKCqvpMGmD0wh/e9q18yvuJCVr7oTcI9yO3GvElvTT7YRQO9IBsjP0j8SzxOXaC9QGqPPKd0zb5oVeo8WN7KPmhDS79Tcic+IHNrvDjiCL4ydfQ+uKYgPnZrvD7Yi9k+/vTsPXxyAj94fEK88GyvvjjegD24L8m9lCDAvCKdTT3O8bc+iPjgvYEvj73hlOg9iTSJvpxqnr4+5Bg/WaxRvqwauD5N47I+LFjzPnyGPj3XQRW9x//xPvIPkTwoQIg+K6GyvoyRbb7aAUQ9H93ovsPvFz6RhDq+LjtYvDrrhL644fa98D2WvUATT7uBbEa/EcGdvSiH6b6w6he77dtivnvZGD6lEwW/SEjVvGcCHz6uoJW+KO7/vu4n6b049eo+"
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+Third-party Rust crates in zyphra-textnorm
+==========================================
+
+zyphra-textnorm's Python extension (zyphra_textnorm/zyphra_textnorm.abi3.so,
+.pyd on Windows) in this add-on is Zyphra's published wheel of version
+@VERSION@, built from https://github.com/Zyphra/zyphra-textnorm at tag
+v@VERSION@ (crate python/, with zyphra-textnorm's own licence and notices in
+the folder beside this file). It links the crates below statically. Each
+crate's source, at the version named, is on
+https://crates.io/crates/<name>/<version>.
+
+Overview
+--------
+{{#each overview}}
+{{{name}}} ({{count}} crates){{#each indices}}{{/each}}
+{{/each}}
+
+{{#each licenses}}
+--------------------------------------------------------------------------------
+{{{name}}}
+Used by:
+{{#each used_by}}
+  - {{crate.name}} {{crate.version}}
+{{/each}}
+
+{{{text}}}
+
+{{/each}}
