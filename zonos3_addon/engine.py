@@ -129,7 +129,8 @@ class Request(Structure):
     _fields_ = [('text', c_char_p), ('language', c_char_p), ('embedding', POINTER(c_float)),
                 ('cfg_scale', c_float), ('speaking_rate', c_double), ('seed', c_uint32), ('max_frames', c_int),
                 ('laci_heads', c_char_p), ('short_text', c_int), ('tail_cut', c_int),
-                ('cancel', POINTER(c_int)), ('controls', c_char_p), ('spans', c_char_p)]
+                ('cancel', POINTER(c_int)), ('controls', c_char_p), ('spans', c_char_p),
+                ('span_rate', c_double)]
 
 
 _lib = None
@@ -294,13 +295,14 @@ class Zonos3:
 
     def _once(self, text: str, language: Language, embedding: bytes | None, seed: int, rate: float,
               laci: bool, cancel: Cancel, controls: dict | None = None,
-              spans: list | None = None) -> tuple[array, dict]:
+              spans: list | None = None, span_rate: float = 0.0) -> tuple[array, dict]:
         emb = (c_float * SPEAKER_DIM).from_buffer_copy(embedding) if embedding else None
         heads = str(laci_heads(language)).encode() if laci else None
         doses = json.dumps(controls, sort_keys=True).encode() if controls else None
         span_json = json.dumps(spans, sort_keys=True).encode() if spans else None
         request = Request(text.encode('utf-8'), language.code.encode(), emb, 1.0, rate, seed & 0xFFFFFFFF, 0,
-                          heads, 1 if laci else 0, 1 if laci else 0, cancel.pointer, doses, span_json)
+                          heads, 1 if laci else 0, 1 if laci else 0, cancel.pointer, doses, span_json,
+                          float(span_rate or 0.0))
         out, count = POINTER(c_float)(), c_int64()
         err = ctypes.create_string_buffer(1024)
         info = ctypes.create_string_buffer(16384)
@@ -326,7 +328,8 @@ class Zonos3:
 
     def synthesize(self, text: str, language: Language, embedding: bytes | None, seed: int = 0,
                    rate: float = -1.0, cancel: Cancel | None = None,
-                   controls: dict | None = None, spans: list | None = None) -> tuple[array, dict]:
+                   controls: dict | None = None, spans: list | None = None,
+                   span_rate: float = 0.0) -> tuple[array, dict]:
         """(samples at sample_rate, what happened). `text` is normalized already.
 
         A take with almost no voice is taken again with the next seed. LACI's
@@ -338,13 +341,13 @@ class Zonos3:
         for attempt in range(_RETRIES + 1):
             try:
                 samples, record = self._once(text, language, embedding, seed + attempt, rate, laci, cancel, controls,
-                                             spans)
+                                             spans, span_rate)
             except EngineError as exc:
                 if laci and 'too long for the alignment probe' in str(exc):
                     log.info('the line is too long for LACI; speaking it without')
                     laci = False
                     samples, record = self._once(text, language, embedding, seed + attempt, rate, laci, cancel,
-                                                 controls, spans)
+                                                 controls, spans, span_rate)
                 else:
                     raise
             record['seed'] = seed + attempt
