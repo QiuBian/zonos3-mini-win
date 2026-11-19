@@ -65,6 +65,9 @@ typedef struct zs_request {
     // Word-level controls: JSON [{"start": char, "end": char, "controls": {"<id>": dose}], in UTF-8 characters
     // of `text`; NULL/"" = the constant `controls` apply to the whole line. Needs zs_steer_load().
     const char * spans;
+    // Frames per text character for `spans` (> 0). 0 = estimate from the script (CJK-weighted). A caller that
+    // measured the utterance first passes the real rate here.
+    double span_rate;
 } zs_request;
 
 // On success *out holds *n_out samples at zs_sample_rate (free with zs_free); returns 0, or -1 with err set.
