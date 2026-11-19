@@ -417,6 +417,12 @@ def _handle_synthesize(state: _Request, params: dict) -> None:
     if spans is not None and not isinstance(spans, list):
         _emit_error(req_id, ERR_BAD_PARAMS, 'spans must be a list of {"start", "end", "controls"}')
         return
+    span_rate = params.get('span_rate') or 0.0
+    try:
+        span_rate = float(span_rate)
+    except (TypeError, ValueError):
+        _emit_error(req_id, ERR_BAD_PARAMS, 'span_rate must be a number (frames per character, 0 = auto)')
+        return
 
     reference = ''
     if voice.id == voices.CLONE:
@@ -450,7 +456,7 @@ def _handle_synthesize(state: _Request, params: dict) -> None:
             started = time.monotonic()
             samples, record = model.synthesize(spoken, language, embedding, seed=seed, rate=rate,
                                                cancel=state.cancel, controls=controls or None,
-                                               spans=spans or None)
+                                               spans=spans or None, span_rate=span_rate)
             took = time.monotonic() - started
         if state.cancel.is_set():
             raise engine.Cancelled()
