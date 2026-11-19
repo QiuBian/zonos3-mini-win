@@ -552,7 +552,8 @@ int zs_synthesize(zs_ctx * c, const zs_request * req, float ** out, int64_t * n_
                 spans.swap(fitted);
             }
             if (req->embedding) steered_embedding.assign(req->embedding, req->embedding + model.hp.speaker_dim);
-            if (!zonos3_steer_resolve(c->steer, doses, spans, text_chars, span_frames_per_char(std::string(text)),
+            const double span_rate = req->span_rate > 0 ? req->span_rate : span_frames_per_char(std::string(text));
+            if (!zonos3_steer_resolve(c->steer, doses, spans, text_chars, span_rate,
                                       req->embedding ? &steered_embedding : nullptr, steering, ctl_err)) {
                 set_err(err, err_len, ctl_err);
                 return -1;
